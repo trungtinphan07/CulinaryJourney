@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            font-family: 'Paytone One', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+
+        .content {
+            display: flex;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .food-item {
+            text-align: center;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .food-item h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .food-item p {
+            color: #777;
+            padding: 0 10px;
+        }
+
+        details {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        details summary {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            border-radius: 5px;
+            background-color: #474747;
+        }
+        nav a.highlighted {
+            background-color: #fae900;
+        }
+        .nav-links {
+
+            text-align: center;
+            padding: 20px 0;
+            background-color: #777;
+        }
+
+        .nav-links .link {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links .link:hover {
+            background-color: #e5533c;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+
+            text-indent: -10px;
+
+            text-align: center;
+            list-style-position: outside;
+
+        }
+
+        details a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+
+        }
+
+        footer .footer-center {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+
+        }
+
+        .highlighted {
+            background-color: #fae900;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Culinary Journey</h1>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+    </header>
+    <nav>
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
+        <a href="korea.html">Đồ ăn Hàn Quốc</a>
+        <a href="japan.html" class="highlighted"> Đồ ăn Nhật Bản</a>
+        <a href="thailand.html">Đồ ăn Thái Lan</a>
+    </nav>
+    <!-- Món ăn -->
+    <div class="content">
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://imgur.com/kOFyhFu.jpeg" alt="Món 1">
+            <h3>Sushi</h3>
+            <p>Sushi có vị thanh nhẹ, tươi mát và hài hòa giữa cơm giấm chua ngọt, hải sản tươi sống, và các thành phần
+                khác như rau, rong biển,... tạo nên một trải nghiệm ăn uống tinh tế và đa chiều.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm Nhật (gạo sushi), giấm gạo, đường, muối</li>
+                        <li>Lá rong biển (nori)</li>
+                        <li>Cá sống (cá hồi, cá ngừ) hoặc hải sản chín</li>
+                        <li>Rau củ (dưa leo, bơ)</li>
+                        <li>Topping tùy chọn (trứng cá, trứng cuộn)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Trộn cơm chín với giấm, đường, muối.</p>
+                    <p>2. Đặt lá rong biển lên mành tre, trải cơm đều, chừa mép.</p>
+                    <p>3. Thêm nhân (hải sản, rau củ) vào giữa.</p>
+                    <p>4. Cuộn chặt tay, cắt thành khoanh.</p>
+                    <p>5. Ăn kèm nước tương, wasabi, gừng ngâm.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/v8EvBRWo9No?si=_kcDQEG4eyat6sf1" target="_blank"
+                                rel="noopener noreferrer">Cách làm món sushi</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 2 -->
+        <div class="food-item">
+            <img src="https://imgur.com/MxOWnG8.jpeg" alt="Món 2">
+            <h3>Mì Ramen</h3>
+            <p>Mì Ramen có vị đậm đà và phong phú, với nước dùng thơm ngon từ xương heo, gà hoặc hải sản, kết hợp với
+                gia vị như nước tương, miso hoặc muối.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì ramen</li>
+                        <li>Nước dùng (xương heo/gà, miso, hoặc shoyu)</li>
+                        <li>Thịt heo chashu, trứng luộc lòng đào</li>
+                        <li>Rau củ (măng, hành lá, rong biển)</li>
+                        <li>Gia vị: nước tương, dầu mè, gừng, tỏi</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng bằng xương hầm hoặc pha miso, shoyu</p>
+                    <p>2. Luộc mì ramen, để ráo.</p>
+                    <p>3. Chuẩn bị topping: thái thịt chashu, luộc trứng lòng đào.</p>
+                    <p>4. Xếp mì, thịt, trứng, rau vào tô, chan nước dùng nóng.</p>
+                    <p>5. Thưởng thức nóng kèm gia vị tùy thích!</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/LvHokoKfS0w?si=J5lrLa9oveb5jym0" target="_blank"
+                                rel="noopener noreferrer">Cách làm món mì ramen</a></li>
+                    </ul>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 3 -->
+        <div class="food-item">
+            <img src="https://imgur.com/OTA78ft.jpeg" alt="Món 3">
+            <h3>Cơm Lươn Nướng</h3>
+            <p>Cơm lươn nướng là món ăn đặc trưng với sự kết hợp giữa cơm mềm thơm và lươn nướng vàng giòn, phủ một lớp
+                sốt ngọt đậm đà.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Lươn tươi</li>
+                        <li>Cơm trắng</li>
+                        <li>Nước tương, mirin, đường, rượu sake (để làm sốt kabayaki)</li>
+                        <li>Gừng, hành lá, rong biển (tùy chọn)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Làm sạch lươn, rạch dọc và nướng sơ.</p>
+                    <p>2. Nấu sốt kabayaki: đun nước tương, mirin, đường, sake đến khi hơi sánh.</p>
+                    <p>3. Quét sốt lên lươn và nướng đến khi chín, lớp sốt bóng đẹp.</p>
+                    <p>4. Sắp lươn nướng lên cơm trắng, thêm gừng, hành lá hoặc rong biển.</p>
+                    <p>5. Rưới sốt lên cơm và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=HxcWu5KNIHs" target="_blank"
+                                rel="noopener noreferrer">Cách làm món cơm lươn nướng</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 4 -->
+        <div class="food-item">
+            <img src="https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/01-DSVM-Ph%C6%B0%C6%A1ng/34.%20B%C3%A1nh%20b%E1%BA%A1ch%20tu%E1%BB%99c/banh-bach-tuoc-takoyaki-mon-an-vat-thanh-thi-cuc-hot-den-tu-nhat-ban-2.jpg"
+                alt="Món 4">
+            <h3>Takoyaki</h3>
+            <p>Takoyaki có vị đậm đà, béo ngậy từ sốt takoyaki và mayonnaise, kết hợp với hương vị umami từ nước dashi
+                tạo nên một món ăn vừa ngon miệng vừa thú vị.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bột takoyaki</li>
+                        <li>Nước dashi</li>
+                        <li>Mực bạch tuộc (hoặc cá ngừ)</li>
+                        <li>Trứng</li>
+                        <li>Gừng ngâm</li>
+                        <li>Hành lá</li>
+                        <li>Sốt takoyaki</li>
+                        <li>Mayonnaise Nhật</li>
+                        <li>Topping: cá bào, rong biển khô</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Trộn bột takoyaki với nước dashi và trứng.</p>
+                    <p>2. Đun nóng khuôn takoyaki, đổ bột vào từng lỗ khuôn, cho mực, gừng và hành vào giữa.</p>
+                    <p>3. Xoay bánh khi một mặt đã chín, đến khi vàng giòn đều.</p>
+                    <p>4. Đặt bánh ra đĩa, rưới sốt takoyaki và mayonnaise, rắc cá bào, rong biển.</p>
+                    <p>5. Thưởng thức nóng!</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/ynKfRURCtBk?si=9DrCvpOU3B5opZfU" target="_blank"
+                                rel="noopener noreferrer">Cách làm món takoyaki</a></li>
+                    </ul>
+
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

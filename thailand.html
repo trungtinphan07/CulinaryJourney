@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            font-family: 'Paytone One', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+
+        .content {
+            display: flex;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .food-item {
+            text-align: center;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .food-item h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .food-item p {
+            color: #777;
+            padding: 0 10px;
+        }
+
+        details {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        details summary {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            border-radius: 5px;
+            background-color: #474747;
+        }
+        nav a.highlighted {
+            background-color: #fae900;
+        }
+        .nav-links {
+
+            text-align: center;
+            padding: 20px 0;
+            background-color: #777;
+        }
+
+        .nav-links .link {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links .link:hover {
+            background-color: #e5533c;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+
+            text-indent: -10px;
+
+            text-align: center;
+            list-style-position: outside;
+
+        }
+
+        details a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+
+        }
+
+        footer .footer-center {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+
+        }
+
+        .highlighted {
+            background-color: #fae900;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Culinary Journey</h1>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+    </header>
+    <nav>
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
+        <a href="korea.html">Đồ ăn Hàn Quốc</a>
+        <a href="japan.html">Đồ ăn Nhật Bản</a>
+        <a href="thailand.html" class="highlighted"> Đồ ăn Thái Lan</a>
+    </nav>
+    <!-- Món ăn -->
+    <div class="content">
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://apollotourist.vn/wp-content/uploads/2023/11/Som-Tam-Goi-du-du-Thai-Lan-960x540.jpg"
+                alt="Món 1">
+            <h3>Gỏi Đu Đủ</h3>
+            <p>Gỏi đu đủ có vị chua thanh, ngọt nhẹ, mặn đậm, cay nồng, kết hợp với độ giòn sần sật của đu đủ và hương
+                thơm từ rau cùng lạc rang.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Đu đủ xanh</li>
+                        <li>Cà rốt</li>
+                        <li>Tôm (hoặc thịt gà, đậu hũ)</li>
+                        <li>Đậu phộng rang</li>
+                        <li>Tỏi, ớt</li>
+                        <li>Nước mắm, đường, chanh, giấm</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Bào sợi đu đủ, cà rốt, luộc tôm.</p>
+                    <p>2. Giã tỏi, ớt, pha nước trộn với nước mắm, đường, chanh.</p>
+                    <p>3. Trộn tất cả nguyên liệu với nước trộn.</p>
+                    <p>4. Rắc đậu phộng lên trên và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/95SNwrPbZKk?si=YU4obY6GA1qdZoVP" target="_blank"
+                                rel="noopener noreferrer">Cách làm món gỏi đu đủ</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 2 -->
+        <div class="food-item">
+            <img src="https://reviewamthuc.net/wp-content/uploads/2024/05/pad-thai.jpg" alt="Món 2">
+            <h3>Pad Thái</h3>
+            <p>Pad Thái có vị chua thanh từ me, ngọt nhẹ từ đường thốt nốt, mặn đậm đà từ nước mắm, và cay nồng từ ớt
+                tạo nên hương vị cân bằng và hấp dẫn.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì gạo (hoặc phở khô)</li>
+                        <li>Tôm, thịt gà hoặc đậu phụ</li>
+                        <li>Trứng gà</li>
+                        <li>Giá đỗ, hẹ, đậu phộng rang</li>
+                        <li>Nước mắm, nước cốt me, đường thốt nốt, nước tương</li>
+                        <li>Tỏi, ớt, chanh</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ngâm mềm mì gạo, sau đó chần qua nước sôi.</p>
+                    <p>2. Pha sốt: trộn nước cốt me, nước mắm, đường, và nước tương.</p>
+                    <p>3. Xào tỏi, tôm (hoặc gà/đậu phụ), đẩy sang bên chảo, thêm trứng, đánh tan.</p>
+                    <p>4. Thêm mì, sốt đã pha, đảo đều.</p>
+                    <p>5. Cho giá, hẹ, đậu phộng, đảo nhanh, nêm lại.</p>
+                    <p>6. Trang trí chanh và ớt, dùng nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/EBXcOY4YRiU?si=95s0xfM-gpTISKa0" target="_blank"
+                                rel="noopener noreferrer">Cách làm món pad thái</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 3 -->
+        <div class="food-item">
+            <img src="https://nauchuananngon.vn/wp-content/uploads/2021/08/Cach-lam-xoi-xoai-Thai-Lan-thom-ngon-chuan-vi-ban-xu-01.jpg"
+                alt="Món 3">
+            <h3>Xôi Xoài</h3>
+            <p>Xôi xoài có vị ngọt dịu, béo ngậy của nước cốt dừa, kết hợp với độ dẻo thơm của nếp và vị chua ngọt tự
+                nhiên từ xoài chín, tạo nên một món ăn hài hòa và hấp dẫn.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Gạo nếp</li>
+                        <li>Nước cốt dừa</li>
+                        <li>Đường, muối</li>
+                        <li>Xoài chín</li>
+                        <li>Mè rang</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ngâm gạo nếp, nấu chín bằng nồi hoặc hấp.</p>
+                    <p>2. Đun nước cốt dừa với đường, muối; rưới lên xôi và trộn đều.</p>
+                    <p>3. Cắt xoài chín thành lát.</p>
+                    <p>4. Dọn xôi kèm xoài, rưới thêm nước cốt dừa và rắc mè rang.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/dD9zwO-5AkI?si=9_nxIm1512moujdD" target="_blank"
+                                rel="noopener noreferrer">Cách làm món xôi xoài</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 4 -->
+        <div class="food-item">
+            <img src="https://cdn.tgdd.vn/Files/2021/04/06/1341188/cach-lam-suon-cay-thai-lan-sieu-ngon-sieu-don-gian-202104061418590126.jpg"
+                alt="Món 4">
+            <h3>Sườn Cay Sốt Thái</h3>
+            <p>Sườn cay sốt Thái có vị đậm đà, hòa quyện giữa cay nồng của ớt, chua thanh từ chanh, mặn ngọt hài hòa,
+                cùng hương thơm đặc trưng của tỏi, sả, rau mùi.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Sườn non</li>
+                        <li>Tỏi, hành, ớt, gừng</li>
+                        <li>Nước cốt dừa</li>
+                        <li>Nước mắm, đường, muối</li>
+                        <li>Lá chanh, sả</li>
+                        <li>Gia vị Thái: xì dầu, ớt bột, nước cốt chanh</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Sườn non rửa sạch, chặt miếng vừa ăn, luộc sơ qua.</p>
+                    <p>2. Phi tỏi, hành, ớt, gừng đến thơm, thêm sả và lá chanh vào xào cùng.</p>
+                    <p>3. Thêm nước cốt dừa, gia vị Thái (nước mắm, xì dầu, đường, ớt bột), nấu sôi.</p>
+                    <p>4. Cho sườn vào, đun nhỏ lửa đến khi sườn mềm và thấm gia vị.</p>
+                    <p>5. Trang trí với lá chanh tươi và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/isbWDW3Gg1Q?si=eiaTME98W3Zmr-zf" target="_blank"
+                                rel="noopener noreferrer">Cách làm món sườn cay sốt thái</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

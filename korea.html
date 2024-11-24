@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            font-family: 'Paytone One', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+
+        .content {
+            display: flex;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .food-item {
+            text-align: center;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .food-item h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .food-item p {
+            color: #777;
+            padding: 0 10px;
+        }
+
+        details {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        details summary {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            border-radius: 5px;
+            background-color: #474747;
+        }
+        nav a.highlighted {
+            background-color: #fae900;
+        }
+        .nav-links {
+
+            text-align: center;
+            padding: 20px 0;
+            background-color: #777;
+        }
+
+        .nav-links .link {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links .link:hover {
+            background-color: #e5533c;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+
+            text-indent: -10px;
+
+            text-align: center;
+            list-style-position: outside;
+
+        }
+
+        details a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+
+        }
+
+        footer .footer-center {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+
+        }
+
+        .highlighted {
+            background-color: #fae900;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Culinary Journey</h1>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+    </header>
+    <nav>
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
+        <a href="korea.html" class="highlighted"> Đồ ăn Hàn Quốc</a>
+        <a href="japan.html">Đồ ăn Nhật Bản</a>
+        <a href="thailand.html">Đồ ăn Thái Lan</a>
+    </nav>
+    <!-- Món ăn -->
+    <div class="content">
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://imgur.com/3LXkNW7.jpeg" alt="Món 1">
+            <h3>Mì Lạnh</h3>
+            <p>Mì lạnh có vị thanh mát, dịu nhẹ với sự kết hợp giữa nước tương đậm đà, giấm gạo chua nhẹ và dầu mè thơm.
+            </p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì soba/mì kiều mạch</li>
+                        <li>Nước tương, giấm gạo, dầu mè</li>
+                        <li>Đá lạnh</li>
+                        <li>Rau củ (dưa leo, cà rốt, rong biển)</li>
+                        <li>Topping tùy chọn (trứng luộc, thịt bò, hạt mè)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc mì, xả nước lạnh, thêm đá để mì săn và mát.</p>
+                    <p>2. Trộn nước chấm: nước tương, giấm gạo, dầu mè, thêm đường/tỏi nếu thích.</p>
+                    <p>3. Sắp xếp mì, rau củ và topping lên đĩa.</p>
+                    <p>4. Chan nước chấm lên hoặc dùng kèm riêng.</p>
+                    <p>5. Thưởng thức lạnh!</p>
+
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/9T6TjcKfmpw?si=dUfRe-oQiqdFt0I0" target="_blank"
+                                rel="noopener noreferrer">Cách làm món mì lạnh</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 2 -->
+        <div class="food-item">
+            <img src="https://imgur.com/xXj9cSp.jpeg" alt="Món 2">
+            <h3>Tokbokki</h3>
+            <p>Tokbokki có sự kết hợp giữa bánh gạo dai mềm và sốt ớt gochujang, tạo nên hương vị vừa cay vừa ngọt, hòa
+                quyện với vị umami từ các gia vị khác như tỏi, xì dầu.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh gạo Hàn Quốc</li>
+                        <li>Chả cá Hàn Quốc</li>
+                        <li>Tương ớt Gochujang, tương đậu Gochugaru</li>
+                        <li>Nước dùng</li>
+                        <li>Rau củ (hành lá, cải thảo, cà rốt)</li>
+                        <li>Topping tùy chọn (trứng luộc, phô mai)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng, thêm Gochujang, Gochugaru, đường, tỏi để tạo sốt cay ngọt.</p>
+                    <p>2. Thả bánh gạo, chả cá, rau củ vào, đun sôi nhỏ lửa đến khi mềm.</p>
+                    <p>3. Thêm phô mai hoặc trứng luộc tùy khẩu vị.</p>
+                    <p>4. Dọn ra và thưởng thức nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/2BKO117nmfA?si=5tG34-YwXFkLIg-f" target="_blank"
+                                rel="noopener noreferrer">Cách làm món tokboki</a></li>
+                    </ul>
+
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 3 -->
+        <div class="food-item">
+            <img src="https://sotaynauan.com/wp-content/uploads/2016/03/cach-lam-com-tron-han-quoc-buoc-6.jpg"
+                alt="Món 3">
+            <h3>Cơm Trộn Hàn Quốc</h3>
+            <p>Cơm trộn Hàn Quốc có vị hòa quyện giữa sự ngọt nhẹ của rau, vị umami của thịt, và một chút cay nồng từ ớt
+                gochujang. Từng thành phần như trứng ốp la, rau củ tươi và nấm tạo nên sự cân bằng hoàn hảo</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm trắng</li>
+                        <li>Rau củ (cà rốt, rau cải, giá đỗ, dưa leo)</li>
+                        <li>Thịt bò hoặc thịt gà (ướp gia vị Hàn Quốc)</li>
+                        <li>Trứng gà (ốp la hoặc luộc)</i>
+                        <li>Tương ớt Hàn Quốc (gochujang), dầu mè, mè rang</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Xào rau củ và thịt riêng từng loại.</p>
+                    <p>2. Sắp cơm vào bát, xếp rau, thịt, trứng lên trên.</p>
+                    <p>3. Thêm tương ớt Hàn Quốc và dầu mè.</p>
+                    <p>4. Trộn đều và thưởng thức!.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/zQLqkrqnoS0?si=wvaGID8UElzR0tfl" target="_blank"
+                                rel="noopener noreferrer">Cách làm món cơm trộn hàn quốc</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 4 -->
+        <div class="food-item">
+            <img src="https://imgur.com/QGvh4QF.jpeg" alt="Món 4">
+            <h3>Gà Rán Sốt</h3>
+            <p>Gà rán có lớp sốt phủ ngoài miếng gà giòn rụm tạo nên một hương vị hấp dẫn, hòa quyện giữa sự nóng bỏng
+                của ớt và sự mềm mại, ngọt ngào của mật ong, mang lại cảm giác vừa tê cay vừa thơm ngon.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Gà (cánh, đùi hoặc ức)</li>
+                        <li>Bột chiên giòn, bột bắp</li>
+                        <li>Tỏi, gừng</li>
+                        <li>Nước tương, tương ớt Hàn Quốc (gochujang), mật ong</li>
+                        <li>Dầu ăn, mè rang, hành lá</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Tẩm gà với muối, tiêu, bột bắp, rồi chiên vàng giòn hai lần.</p>
+                    <p>2. Làm sốt: phi thơm tỏi, gừng, thêm gochujang, nước tương, mật ong, khuấy đến khi sệt.</p>
+                    <p>3. Trộn gà chiên với sốt để áo đều.</p>
+                    <p>4. Rắc mè rang, hành lá lên trên và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://youtu.be/j_-5lgdzGt4?si=3iFdpzHwHEmtbvSf" target="_blank"
+                                rel="noopener noreferrer">Cách làm món gà rán sốt</a></li>
+                    </ul>
+
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
