@@ -8,8 +8,16 @@
     <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
     <style>
+        @font-face {
+    font-family: 'edo_szregular';
+    src: url('edosz-webfont.woff2') format('woff2'),
+         url('edosz-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
         * {
-            box-sizing: border-box;
+            box-sizing: border-box; /*Thuộc tính này thay đổi cách tính kích thước (chiều rộng và chiều cao) của các phần tử HTML. Khi sử dụng box-sizing: border-box;, giá trị của width và height sẽ bao gồm cả phần padding và border (nếu có). Điều này có nghĩa là:*/
         }
 
         body {
@@ -22,8 +30,9 @@
             min-height: 100vh;
         }
 
+
         header {
-            font-family: 'Paytone One', sans-serif;
+            font-family: 'edo_szregular', sans-serif;
             background-color: #e5533c;
             background-size: cover;
             background-position: center;
@@ -43,20 +52,36 @@
             margin-top: 5px;
         }
 
+        .member-title {
+            text-align: center;
+            margin: 0px 0px;
+            padding: 10px;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            width: auto;
+        }
 
+        .member-title h2 {
+            font-family: 'Paytone One', sans-serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #e5533c;
+            letter-spacing: 4px;
+        }
         .content {
             display: flex;
             background-image: url('https://imgur.com/LzurwfE.jpeg');
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 25px;
             flex-wrap: wrap;
             flex: 1;
+            margin-top: -10px;
         }
+
 
         .food-item {
             text-align: center;
-            width: 250px;
+            width: calc(20% - 10px);
             border: 1px solid #ddd;
             border-radius: 8px;
             background-color: white;
@@ -70,7 +95,7 @@
 
         .food-item img {
             width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit: cover;
             border-radius: 8px 8px 0 0;
         }
@@ -103,6 +128,7 @@
             justify-content: center;
             background-color: #333;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
@@ -110,16 +136,20 @@
             text-align: center;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             border-radius: 5px;
             background-color: #474747;
         }
+
         nav a.highlighted {
             background-color: #fae900;
         }
+
         .nav-links {
 
             text-align: center;
+
             padding: 20px 0;
             background-color: #777;
         }
@@ -137,7 +167,6 @@
         .nav-links .link:hover {
             background-color: #e5533c;
         }
-
 
         footer {
             background-color: #333;
@@ -160,23 +189,14 @@
 
         details ul {
             padding-left: 15px;
-
             margin: 0;
         }
 
         details li {
             padding-left: 5px;
-
             text-indent: -10px;
-
             text-align: center;
             list-style-position: outside;
-
-        }
-
-        details a {
-            color: #ff6347;
-            text-decoration: none;
         }
 
         footer ul {
@@ -204,12 +224,10 @@
         footer .footer-left {
             flex: 1;
             text-align: left;
-
         }
 
         footer .footer-center {
             text-align: center;
-
             font-size: 1.5em;
             font-weight: bold;
             text-align: center;
@@ -219,14 +237,12 @@
 
         footer .footer-right {
             text-align: right;
-
         }
 
         footer img {
             max-width: 200px;
             height: auto;
             border-radius: 10%;
-
         }
 
         .highlighted {
@@ -239,7 +255,6 @@
             display: inline-block;
             text-align: center;
             line-height: 1.5;
-
         }
     </style>
 </head>
@@ -252,75 +267,53 @@
         <p>Hành trình ẩm thực - Khám phá món ăn</p>
     </header>
     <nav>
-        <a href="trangchu.html">Trang chủ</a>
-        <a href="vietnam.html" class="highlighted"> Đồ ăn Việt Nam</a>
+        <a href="trangchu.html" class="highlighted">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
         <a href="korea.html">Đồ ăn Hàn Quốc</a>
         <a href="japan.html">Đồ ăn Nhật Bản</a>
-        <a href="thailand.html">Đồ ăn Thái Lan</a>
+        <a href="thailand.html"> Đồ ăn Thái Lan</a>
     </nav>
     <!-- Món ăn -->
+    <div class="member-title">
+        <h2>TRANG ĐƯỢC TẠO BỞI CÁC MASTERCHEF 👇👇</h2>
+    </div>
     <div class="content">
         <!-- Món ăn 1 -->
+
         <div class="food-item">
-            <img src="https://imgur.com/phHRT5r.jpeg" alt="Món 1">
-            <h3>Bánh Mì Thịt</h3>
-            <p>Bánh mì thịt có hương vị thơm ngon và đậm đà, kết hợp giữa lớp vỏ bánh mì giòn rụm và phần nhân thịt
-                nướng mềm thơm, sốt ăn kèm vừa vị cùng một số đồ chua. </p>
+            <img src="https://imgur.com/P6vMwgY.jpg" alt="Món 1">
+            <h3>Vũ Nguyễn Nhật Anh</h3>
+            <p>Xà nữ quyến rũ</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
-                <summary>Xem nguyên liệu và công thức</summary>
+                <summary>Xem nhiệm vụ được phân công</summary>
                 <div>
-                    <h4>Nguyên liệu:</h4>
+                    <h4>Nhiệm vụ:</h4>
                     <ul>
-                        <li>Bánh mì</li>
-                        <li>Thịt nướng</li>
-                        <li>Xà lách</li>
-                        <li>Cà chua</li>
-                        <li>Nước sốt</li>
+                        <li>Hỗ trợ code web</li>
+                        <li>Tìm kiếm thông tin</li>
+                        <li>Lên ý tưởng</li>
                     </ul>
-                    <h4>Công thức:</h4>
-                    <p>1. Nướng thịt (heo, bò hoặc gà) đã ướp gia vị cho chín vàng, thơm.</p>
-                    <p>2. Cắt bánh mì, rồi nướng sơ cho giòn.</p>
-                    <p>3. Cho thịt nướng vào bánh mì, thêm dưa leo, cà rốt, củ cải muối và rau thơm.</p>
-                    <p>4. Thêm nước tương tỏi ớt, sốt theo khẩu vị.</p>
-                    <p>5. Kẹp bánh mì lại, thưởng thức ngay khi còn nóng.</p>
-                    <h4>Cách làm chi tiết:</h4>
-                    <ul>
-                        <li> <a href="https://youtu.be/Ps2fqiK2ykQ?si=k_t-9iddGNYGBpkP" target="_blank"
-                                rel="noopener noreferrer">Cách làm món bánh mì thịt</a></li>
-                    </ul>
+
                 </div>
             </details>
         </div>
 
         <!-- Món ăn 2 -->
         <div class="food-item">
-            <img src="https://imgur.com/DCi1nMV.jpeg" alt="Món 2">
-            <h3>Phở Bò</h3>
-            <p>Phở bò có vị đậm đà, thơm ngọt từ nước dùng được ninh từ xương bò, kết hợp với hương liệu như quế, hồi,
-                gừng tạo nên một hương vị hài hòa, vừa béo, vừa thanh.</p>
+            <img src="https://imgur.com/PD2KoIY.jpg" alt="Món 2">
+            <h3>Nguyễn Ngọc Phương Thy</h3>
+            <p>Osin của nhóm</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
-                <summary>Xem nguyên liệu và công thức</summary>
+                <summary>Xem nhiệm vụ được phân công</summary>
                 <div>
-                    <h4>Nguyên liệu:</h4>
+                    <h4>Nhiệm vụ:</h4>
                     <ul>
-                        <li>Phở tươi</li>
-                        <li>Thịt bò</li>
-                        <li>Nước dùng</li>
-                        <li>Gia vị: Hành, tỏi, gừng, ớt</li>
-                    </ul>
-                    <h4>Công thức:</h4>
-                    <p>1. Nấu nước dùng: Đun sôi xương bò với hành, gừng nướng và gia vị phở. Nấu lâu khoảng 3-4 giờ.
-                    </p>
-                    <p>2. Luộc phở: Trụng mì phở vào nước sôi cho mềm, vớt ra để ráo.</p>
-                    <p>3. Thái mỏng thịt bò, bắp, gầu, tái.</p>
-                    <p>4. Xếp phở vào bát, cho thịt bò lên trên và chan nước dùng sôi vào.</p>
-                    <p>5. Thêm chanh, ớt, giá đỗ và rau húng quế tùy thích, thưởng thức.</p>
-                    <h4>Cách làm chi tiết:</h4>
-                    <ul>
-                        <li> <a href="https://youtu.be/c9GfHgMk1ac?si=enfWUfnBoFJOvnzK" target="_blank"
-                                rel="noopener noreferrer">Cách làm món phở bò</a></li>
+                        <li>Làm word</li>
+                        <li>Tìm kiếm thông tin, hình ảnh</li>
+                        <li>Lên ý tưởng</li>
+
                     </ul>
 
                 </div>
@@ -329,65 +322,58 @@
 
         <!-- Món ăn 3 -->
         <div class="food-item">
-            <img src="https://imgur.com/vjqSxYV.jpeg" alt="Món 3">
-            <h3>Gỏi Cuốn</h3>
-            <p>Gỏi cuốn có vị tươi mát, nhẹ nhàng với sự kết hợp hoàn hảo giữa các nguyên liệu như rau sống, bún, tôm
-                hoặc thịt, cuốn trong lớp bánh tráng mềm mịn mang đến một cảm giác thanh mát, tươi ngon.</p>
+            <img src="https://imgur.com/0roZ509.jpg" alt="Món 3">
+            <h3>Phan Trung Tín</h3>
+            <p>Nhóm trưởng sai đẹp chiêu</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
-                <summary>Xem nguyên liệu và công thức</summary>
+                <summary>Xem nhiệm vụ được phân công</summary>
                 <div>
-                    <h4>Nguyên liệu:</h4>
+                    <h4>Nhiệm vụ:</h4>
                     <ul>
-                        <li>Bánh tráng</li>
-                        <li>Tôm tươi</li>
-                        <li>Xà lách</li>
-                        <li>Ngò rí</i>
-                        <li>Gia vị: Nước mắm, đường, tỏi, ớt</li>
+                        <li>Làm code web</li>
+                        <li>Lên ý tưởng</li>
+                        <li>Thuyết trình</li>
+                        <li>Tổng hợp nội dung</i>
                     </ul>
-                    <h4>Công thức:</h4>
-                    <p>1. Luộc tôm và thịt, thái nhỏ. Bún tươi trụng qua nước sôi.</p>
-                    <p>2. Rửa sạch rau sống và cắt nhỏ, chuẩn bị đậu phộng rang.</p>
-                    <p>3. Nhúng bánh tráng vào nước ấm, đặt lên mặt phẳng.</p>
-                    <p>4. Xếp tôm, thịt, bún, rau sống lên bánh tráng, cuốn chặt tay.</p>
-                    <p>5. Pha nước chấm với nước mắm, tỏi, ớt, chanh, ăn kèm với gỏi cuốn.</p>
-                    <h4>Cách làm chi tiết:</h4>
-                    <ul>
-                        <li> <a href="https://youtu.be/LJ_3BeqH63w?si=7Izwk7W2pfKTk5ef" target="_blank"
-                                rel="noopener noreferrer">Cách làm món gỏi cuốn</a></li>
-                    </ul>
+
                 </div>
             </details>
         </div>
 
         <!-- Món ăn 4 -->
         <div class="food-item">
-            <img src="https://imgur.com/jp8Tejw.jpeg" alt="Món 4">
-            <h3>Cơm Tấm</h3>
-            <p>Cơm tấm có hương vị đặc trưng từ gạo tấm dẻo, kết hợp với thịt nướng thơm lừng (thường là sườn, bì, chả)
-                và nước mắm pha chua ngọt mang đến hương vị đậm đà khó cưỡng.</p>
+            <img src="https://imgur.com/eXhanFH.jpg" alt="Món 4">
+            <h3>Trang Triệu Hồng Phúc</h3>
+            <p>Zai đẹp "mùa thu hà nội"</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
-                <summary>Xem nguyên liệu và công thức</summary>
+                <summary>Xem nhiệm vụ được phân công</summary>
                 <div>
-                    <h4>Nguyên liệu:</h4>
+                    <h4>Nhiệm vụ:</h4>
                     <ul>
-                        <li>Gạo tấm</li>
-                        <li>Sườn nướng</li>
-                        <li>Trứng ốp la</li>
-                        <li>Bì</li>
-                        <li>Gia vị: Nước mắm, đường, tỏi, ớt</li>
+                        <li>Hỗ trợ code web</li>
+                        <li>Làm word</li>
+                        <li>Thuyết trình</li>
+
                     </ul>
-                    <h4>Công thức:</h4>
-                    <p>1. Nấu cơm tấm chín mềm, tơi.</p>
-                    <p>2. Sườn hoặc thịt heo ướp gia vị rồi nướng đến chín vàng.</p>
-                    <p>3. Chiên chả trứng hoặc chế biến topping tùy thích.</p>
-                    <p>4. Pha nước mắm với đường, tỏi, chanh để làm nước chấm.</p>
-                    <p>5. Bày cơm tấm ra đĩa, thêm sườn, chả, đồ chua, rưới nước mắm lên và thưởng thức.</p>
-                    <h4>Cách làm chi tiết:</h4>
+
+                </div>
+            </details>
+        </div>
+        <div class="food-item">
+            <img src="https://imgur.com/XOEFqe0.jpg" alt="Món 5">
+            <h3>Hồ Thị Thảo An</h3>
+            <p>Quý cô xanh xao</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nhiệm vụ được phân công</summary>
+                <div>
+                    <h4>Nhiệm vụ:</h4>
                     <ul>
-                        <li> <a href="https://youtu.be/OVb5uoDWspM?si=kYPF9mY77u3M7VoD" target="_blank"
-                                rel="noopener noreferrer">Cách làm món cơm tấm</a></li>
+                        <li>Làm word</li>
+                        <li>Tìm kiếm thông tin, hình ảnh</li>
+                        <li>Tổng hợp nội dung</li>
                     </ul>
                 </div>
             </details>
