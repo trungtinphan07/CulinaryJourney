@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
     <style>
         @font-face {
-    font-family: 'edo_szregular';
-    src: url('edosz-webfont.woff2') format('woff2'),
-         url('edosz-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-}
         * {
             box-sizing: border-box;
         }
@@ -38,6 +38,30 @@
             text-align: center;
             padding: 20px 0;
             color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
         }
 
         header h1 {
@@ -111,6 +135,7 @@
             justify-content: center;
             background-color: #333;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
@@ -118,13 +143,16 @@
             text-align: center;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             border-radius: 5px;
             background-color: #474747;
         }
+
         nav a.highlighted {
             background-color: #fae900;
         }
+
         .nav-links {
 
             text-align: center;
@@ -249,6 +277,19 @@
             line-height: 1.5;
 
         }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
     </style>
 </head>
 
@@ -258,6 +299,10 @@
     <header>
         <h1>Culinary Journey</h1>
         <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
     </header>
     <nav>
         <a href="trangchu.html">Trang chủ</a>
@@ -265,6 +310,9 @@
         <a href="korea.html" class="highlighted"> Đồ ăn Hàn Quốc</a>
         <a href="japan.html">Đồ ăn Nhật Bản</a>
         <a href="thailand.html">Đồ ăn Thái Lan</a>
+        <a href="aumy.html">Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html">Món tráng miệng</a>
+        <a href="nuocuong.html">Thức uống</a>
     </nav>
     <!-- Món ăn -->
     <div class="content">
@@ -296,7 +344,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/9T6TjcKfmpw?si=dUfRe-oQiqdFt0I0" target="_blank"
-                                rel="noopener noreferrer">Cách làm món mì lạnh</a></li>
+                                rel="noopener noreferrer">Cách làm Mì Lạnh</a></li>
                     </ul>
                 </div>
             </details>
@@ -307,7 +355,7 @@
             <img src="https://imgur.com/xXj9cSp.jpeg" alt="Món 2">
             <h3>Tokbokki</h3>
             <p>Tokbokki có sự kết hợp giữa bánh gạo dai mềm và sốt ớt gochujang, tạo nên hương vị vừa cay vừa ngọt, hòa
-                quyện với vị umami từ các gia vị khác như tỏi, xì dầu.</p>
+                quyện từ các gia vị khác như tỏi, xì dầu.</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
                 <summary>Xem nguyên liệu và công thức</summary>
@@ -329,7 +377,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/2BKO117nmfA?si=5tG34-YwXFkLIg-f" target="_blank"
-                                rel="noopener noreferrer">Cách làm món tokboki</a></li>
+                                rel="noopener noreferrer">Cách làm Tokboki</a></li>
                     </ul>
 
                 </div>
@@ -341,7 +389,7 @@
             <img src="https://sotaynauan.com/wp-content/uploads/2016/03/cach-lam-com-tron-han-quoc-buoc-6.jpg"
                 alt="Món 3">
             <h3>Cơm Trộn Hàn Quốc</h3>
-            <p>Cơm trộn Hàn Quốc có vị hòa quyện giữa sự ngọt nhẹ của rau, vị umami của thịt, và một chút cay nồng từ ớt
+            <p>Cơm trộn Hàn Quốc có vị hòa quyện giữa sự ngọt nhẹ của rau, của thịt, và một chút cay nồng từ ớt
                 gochujang. Từng thành phần như trứng ốp la, rau củ tươi và nấm tạo nên sự cân bằng hoàn hảo</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
@@ -363,7 +411,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/zQLqkrqnoS0?si=wvaGID8UElzR0tfl" target="_blank"
-                                rel="noopener noreferrer">Cách làm món cơm trộn hàn quốc</a></li>
+                                rel="noopener noreferrer">Cách làm Cơm Trộn Hàn Quốc</a></li>
                     </ul>
                 </div>
             </details>
@@ -395,12 +443,375 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/j_-5lgdzGt4?si=3iFdpzHwHEmtbvSf" target="_blank"
-                                rel="noopener noreferrer">Cách làm món gà rán sốt</a></li>
+                                rel="noopener noreferrer">Cách làm Gà Rán Sốt</a></li>
                     </ul>
 
                 </div>
             </details>
         </div>
+        <!-- Món ăn Mì Tương Đen -->
+        <div class="food-item">
+            <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2022/4/14/1033928/Blackbean-Noodles.jpg"
+                alt="Mì Tương Đen">
+            <h3>Mì Tương Đen</h3>
+            <p>Mì tương đen là món ăn nổi tiếng của Hàn Quốc với hương vị đậm đà từ nước sốt tương đen, kết hợp cùng sợi
+                mì dai và một số nguyên liệu ăn kèm như trứng, rau và thịt heo xào.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì sợi</li>
+                        <li>Tương đen (Chunjang)</li>
+                        <li>Thịt heo (hoặc bò)</li>
+                        <li>Hành tây</li>
+                        <li>Trứng luộc</li>
+                        <li>Gia vị: Đường, dầu ăn, tỏi</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc mì sợi cho chín mềm, vớt ra để ráo.</p>
+                    <p>2. Xào thịt heo với hành tây, tỏi cho thơm, sau đó thêm tương đen vào xào chung.</p>
+                    <p>3. Thêm một chút nước để tạo thành nước sốt sánh đặc.</p>
+                    <p>4. Cho mì vào bát, chan nước sốt lên trên.</p>
+                    <p>5. Trang trí với trứng luộc, rau và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=XUrIuI3ZJPA" target="_blank"
+                                rel="noopener noreferrer">Cách làm Mì Tương Đen</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Canh Rong Biển -->
+        <div class="food-item">
+            <img src="https://beptruong.edu.vn/wp-content/uploads/2021/03/canh-rong-bien.jpg" alt="Canh Rong Biển">
+            <h3>Canh Rong Biển</h3>
+            <p>Canh rong biển với rong biển tươi mát kết hợp với hương vị nhẹ nhàng từ nước dùng, thường được ăn kèm với
+                cơm trắng, tạo cảm giác thanh mát, dễ chịu.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Rong biển khô hoặc tươi</li>
+                        <li>Thịt bò hoặc thịt heo</li>
+                        <li>Tỏi, hành khô</li>
+                        <li>Gia vị: Muối, nước mắm, tiêu</li>
+                        <li>Rau thơm (hành lá, ngò)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Rong biển ngâm nước cho mềm, rửa sạch.</p>
+                    <p>2. Thịt bò hoặc heo thái lát mỏng, ướp gia vị cho thấm.</p>
+                    <p>3. Nấu nước dùng với hành, tỏi phi thơm, cho thịt vào nấu đến khi chín mềm.</p>
+                    <p>4. Thêm rong biển vào nấu thêm khoảng 5 phút.</p>
+                    <p>5. Nêm nếm gia vị vừa ăn, cho hành ngò vào và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=gDDh8i-RUa4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Canh Rong Biển</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Canh Kimchi -->
+        <div class="food-item">
+            <img src="https://vcdn1-vnexpress.vnecdn.net/2019/10/28/249050023-w500-8370-1570524437-5613-1572229643.png?w=460&h=0&q=100&dpr=2&fit=crop&s=uQ1WP-eWYDPFhatto_Fe8g"
+                alt="Canh Kimchi">
+            <h3>Canh Kimchi</h3>
+            <p>Canh kimchi với nước dùng chua cay từ kimchi kết hợp với thịt heo và đậu phụ, tạo nên hương vị đậm đà,
+                kích thích vị giác và rất bổ dưỡng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Kimchi</li>
+                        <li>Thịt heo (ba chỉ hoặc nạc vai)</li>
+                        <li>Đậu phụ</li>
+                        <li>Hành lá</li>
+                        <li>Tỏi, gừng</li>
+                        <li>Gia vị: Nước mắm, ớt, hạt nêm</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Thái thịt heo thành miếng vừa ăn, xào sơ với tỏi, gừng cho thơm.</p>
+                    <p>2. Cho kimchi vào nồi, đảo đều và nấu với một ít nước cho kimchi thấm gia vị.</p>
+                    <p>3. Đổ nước vào nồi và đun sôi, tiếp tục cho thịt heo vào nấu cho mềm.</p>
+                    <p>4. Thêm đậu phụ và gia vị vào nồi, nấu thêm 10 phút cho thấm đều.</p>
+                    <p>5. Nêm lại gia vị vừa ăn, cho hành lá vào và thưởng thức khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=QKWLsIxjQNc" target="_blank"
+                                rel="noopener noreferrer">Cách làm Canh kimchi</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Chả Cá Hàn Quốc -->
+        <div class="food-item">
+            <img src="https://www.monngon.tv/uploads/images/images/cha-ca-han-quoc-5.jpg" alt="Chả Cá Hàn Quốc">
+            <h3>Chả Cá Hàn Quốc</h3>
+            <p>Chả cá Hàn Quốc với lớp vỏ ngoài dai, hòa quyện với rau củ và gia vị đặc trưng của Hàn Quốc, ăn kèm với
+                nước mắm chua ngọt hoặc nước tương.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cá (thường là cá thu hoặc cá hồi)</li>
+                        <li>Hành tây, cà rốt</li>
+                        <li>Bột mì, trứng</li>
+                        <li>Tỏi băm, hành lá</li>
+                        <li>Gia vị: Muối, tiêu, nước tương, dầu ăn</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Rửa sạch cá, lọc lấy thịt, rồi xay nhuyễn.</p>
+                    <p>2. Thái nhỏ hành tây, cà rốt, hành lá và tỏi, trộn với cá xay, cho gia vị vào.</p>
+                    <p>3. Đánh tan trứng, trộn với bột mì để tạo độ kết dính.</p>
+                    <p>4. Nặn hỗn hợp thành viên nhỏ và chiên trong dầu nóng cho đến khi vàng giòn.</p>
+                    <p>5. Dọn ra đĩa và ăn kèm với nước mắm hoặc nước tương chấm.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=27axBnfhGgY" target="_blank"
+                                rel="noopener noreferrer">Cách làm Chả Cá Hàn Quốc</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bulgogi Jjim -->
+        <div class="food-item">
+            <img src="https://i0.wp.com/seonkyounglongest.com/wp-content/uploads/2019/11/Spicy-GalbiJjim-4.jpg?fit=2000%2C1125&ssl=1"
+                alt="Bulgogi Jjim">
+            <h3>Bulgogi Jjim</h3>
+            <p>Bulgogi Jjim là món thịt bò hầm, được ninh trong nước dùng ngọt từ các gia vị đặc trưng như tương đậu,
+                tỏi, và nấm, tạo nên món ăn thơm ngon, mềm mại và đậm đà.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt bò (chọn phần sườn hoặc nạm bò)</li>
+                        <li>Tương đậu Hàn Quốc (Gochujang hoặc Doenjang)</li>
+                        <li>Nấm shiitake</li>
+                        <li>Hành tây</li>
+                        <li>Tỏi, gừng</li>
+                        <li>Gia vị: Nước mắm, đường, tiêu</li>
+                        <li>Rau thơm: Hành lá, ngò</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Thái thịt bò thành miếng vừa ăn, ướp với tỏi, gừng, nước mắm, và gia vị trong 30 phút.</p>
+                    <p>2. Đun sôi nồi nước, cho thịt bò vào hầm cho mềm khoảng 1-2 giờ.</p>
+                    <p>3. Thêm nấm shiitake, hành tây vào nồi hầm, nấu cho đến khi tất cả các nguyên liệu chín mềm.</p>
+                    <p>4. Nêm gia vị vừa ăn, cho rau thơm lên trên khi món ăn đã hoàn tất.</p>
+                    <p>5. Dọn món Bulgogi Jjim cùng cơm trắng hoặc kimchi để thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=A0fvVyvAxAc" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bulgogi Jjim</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Kimchi Jjigae -->
+        <div class="food-item">
+            <img src="https://takestwoeggs.com/wp-content/uploads/2024/03/Kimchi-Jjigae-Kimchi-Stew-Takestwoeggs-3.jpg"
+                alt="Kimchi Jjigae">
+            <h3>Kimchi Jjigae</h3>
+            <p>Kimchi Jjigae với hương vị cay nồng từ kimchi chua, kết hợp với thịt lợn mềm và nước dùng đậm đà, tạo nên
+                một món ăn ấm lòng, lý tưởng cho những ngày lạnh.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Kimchi (dưa cải thảo lên men)</li>
+                        <li>Thịt lợn (thịt ba chỉ hoặc thịt nạc)</li>
+                        <li>Đậu phụ</li>
+                        <li>Tỏi, hành lá</li>
+                        <li>Nước dùng (hoặc nước lọc)</li>
+                        <li>Gia vị: Gochujang (tương ớt Hàn Quốc), xì dầu, muối, tiêu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Xào thịt lợn với tỏi cho thơm, sau đó thêm kimchi vào xào chung.</p>
+                    <p>2. Thêm nước dùng vào nồi, nấu sôi.</p>
+                    <p>3. Cắt đậu phụ thành miếng vừa ăn, thêm vào nồi.</p>
+                    <p>4. Nêm nếm gia vị như gochujang, xì dầu, muối, và tiêu cho vừa miệng.</p>
+                    <p>5. Đun nhỏ lửa khoảng 15-20 phút cho các nguyên liệu hòa quyện, rồi thêm hành lá vào và thưởng
+                        thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=ArmO2VAlBT0" target="_blank"
+                                rel="noopener noreferrer">Cách làm Kimchi Jjigae</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Galbi -->
+        <div class="food-item">
+            <img src="https://www.beyondkimchee.com/wp-content/uploads/2024/02/galbi-korean-short-ribs-thumbnail.jpg"
+                alt="Galbi">
+            <h3>Sườn Nướng Hàn Quốc</h3>
+            <p>Sườn bò được ướp trong nước sốt đậm đà từ xì dầu, tỏi, hành, đường và một số gia vị. Sườn được nướng đến
+                khi chín mềm, thấm đều gia vị, tạo nên hương vị ngon khó cưỡng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Sườn bò hoặc sườn heo</li>
+                        <li>Xì dầu</li>
+                        <li>Tỏi băm</li>
+                        <li>Hành lá</li>
+                        <li>Mật ong hoặc đường</li>
+                        <li>Vừng rang (để rắc lên món ăn)</li>
+                        <li>Gia vị: Gừng, tiêu, dầu mè</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Cắt sườn thành miếng vừa ăn và ngâm vào nước lạnh để loại bỏ máu.</p>
+                    <p>2. Pha nước sốt với xì dầu, mật ong, tỏi băm, hành, gừng và các gia vị, trộn đều.</p>
+                    <p>3. Ngâm sườn trong nước sốt ít nhất 1-2 giờ để sườn thấm gia vị.</p>
+                    <p>4. Nướng sườn trên vỉ nướng hoặc trên bếp than cho đến khi sườn chín đều và có màu vàng nâu đẹp
+                        mắt.</p>
+                    <p>5. Rắc vừng rang và hành lá lên trên, thưởng thức nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=FSrVXye3Z9A&pp=ygUXI3PGsOG7nW5iw7JuxrDhu5tuZ25nb24%3D"
+                                target="_blank" rel="noopener noreferrer">Cách làm Galbi</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Kimbap -->
+        <div class="food-item">
+            <img src="https://tiki.vn/blog/wp-content/uploads/2023/07/thumb-31.jpg" alt="Kimbap">
+            <h3>Kimbap</h3>
+            <p>Kimbap gồm cơm trắng cuốn trong lá rong biển, kết hợp với các nguyên liệu như thịt, trứng, rau, và kim
+                chi, tạo nên một bữa ăn ngon miệng và đầy đủ dinh dưỡng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Rong biển khô</li>
+                        <li>Cơm trắng</li>
+                        <li>Trứng</li>
+                        <li>Thịt (thường là thịt bò hoặc cá ngừ)</li>
+                        <li>Rau cải bó xôi, cà rốt</li>
+                        <li>Gia vị: Nước tương, dầu mè</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu cơm trắng và trộn với dầu mè và một ít muối.</p>
+                    <p>2. Rán trứng và thái thành sợi dài.</p>
+                    <p>3. Thái thịt thành miếng mỏng và xào qua.</p>
+                    <p>4. Cắt rau cải bó xôi, cà rốt thành sợi.</p>
+                    <p>5. Xếp cơm, trứng, thịt, rau lên lá rong biển, cuộn lại thật chặt.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=24PyRO9Eslk" target="_blank"
+                                rel="noopener noreferrer">Cách làm Kimbap</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Sundubu Jjigae -->
+        <div class="food-item">
+            <img src="https://www.beyondkimchee.com/wp-content/uploads/2023/10/sundubu-korean-tofu-soup-thumbnail-1-500x500.jpg"
+                alt="Sundubu Jjigae">
+            <h3>Sundubu Jjigae</h3>
+            <p>Sundubu Jjigae là món canh đậu hũ mềm, có vị cay nồng từ gochujang (pasta ớt đỏ) và hương vị đậm đà từ
+                hải sản, thịt bò hoặc thịt heo, ăn kèm với cơm trắng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Đậu hũ mềm (Sundubu)</li>
+                        <li>Thịt bò hoặc thịt heo</li>
+                        <li>Hải sản (tôm, nghêu, cá)</li>
+                        <li>Gochujang (pasta ớt đỏ)</li>
+                        <li>Tỏi, hành lá, gừng</li>
+                        <li>Gia vị: Nước tương, muối, đường</li>
+                        <li>Trứng (tuỳ chọn)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Xào thịt bò hoặc heo với tỏi và hành lá cho thơm.</p>
+                    <p>2. Thêm hải sản và tiếp tục xào.</p>
+                    <p>3. Cho nước vào và nấu sôi, thêm gochujang và gia vị cho đậm đà.</p>
+                    <p>4. Thêm đậu hũ mềm vào nồi, nấu khoảng 5-10 phút cho đậu hũ thấm gia vị.</p>
+                    <p>5. Nếu thích, cho trứng vào khi nấu xong, nêm lại gia vị và thưởng thức khi nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=f9KulGbsL98" target="_blank"
+                                rel="noopener noreferrer">Cách làm Sundubu Jjigae</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Japchae -->
+        <div class="food-item">
+            <img src="https://andrewzimmern.com/wp-content/uploads/Andrew-Zimmern-Recipe-Japchae-1600x800.jpg"
+                alt="Japchae">
+            <h3>Japchae</h3>
+            <p>Japchae với sợi mì trong suốt, dai ngon, kết hợp với thịt bò, rau củ và nấm, được xào trong nước sốt đậm
+                đà, mang đến hương vị ngọt ngào.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì sợi khoai lang (Dangmyeon)</li>
+                        <li>Thịt bò</li>
+                        <li>Cà rốt</li>
+                        <li>Ớt chuông</li>
+                        <li>Nấm hương hoặc nấm mỡ</li>
+                        <li>Hành tây</li>
+                        <li>Gia vị: Nước tương, dầu mè, tỏi băm, đường, hạt tiêu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc mì sợi khoai lang cho mềm, sau đó xả qua nước lạnh và để ráo.</p>
+                    <p>2. Thái thịt bò mỏng, ướp với nước tương, tỏi, dầu mè.</p>
+                    <p>3. Xào thịt bò với hành tây, cà rốt, ớt chuông và nấm cho chín.</p>
+                    <p>4. Trộn mì với hỗn hợp thịt và rau củ, thêm gia vị nước tương, dầu mè và đường.</p>
+                    <p>5. Xào lại tất cả trên lửa lớn trong vài phút và thưởng thức ngay.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=1PwnJAWiZW0&pp=ygUPI2NhY2htYXlydXRuaHVu"
+                                target="_blank" rel="noopener noreferrer">Cách làm Japchae</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Mandu -->
+        <div class="food-item">
+            <img src="https://imgcdn.thitruongsi.com/tts/rs:fill:600:0:1:1/g:sm/plain/file://product/2023/09/03/8de474e0-4a76-11ee-bb87-41e3ced3403c.jpg"
+                alt="Mandu">
+            <h3>Mandu</h3>
+            <p>Mandu là món bánh gối, được làm từ bột mì, nhân thịt, rau củ, và gia vị, sau đó chiên giòn hoặc hấp chín.
+                Đây là món ăn nhẹ phổ biến trong các buổi tiệc hay ăn vặt.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bột mì</li>
+                        <li>Thịt lợn xay</li>
+                        <li>Rau cải, hành tây, tỏi</li>
+                        <li>Gia vị: Nước mắm, dầu mè, tiêu, xì dầu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Chuẩn bị nhân: Trộn thịt xay, rau cải, hành tây, tỏi với gia vị cho đều.</p>
+                    <p>2. Cắt bột thành các miếng nhỏ, cán mỏng.</p>
+                    <p>3. Đặt một ít nhân vào giữa miếng bột, gập lại và ép kín các cạnh.</p>
+                    <p>4. Chiên hoặc hấp Mandu cho đến khi vàng giòn hoặc chín đều.</p>
+                    <p>5. Thưởng thức Mandu cùng với nước chấm xì dầu và giấm.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=QzHg58w-8TA" target="_blank"
+                                rel="noopener noreferrer">Cách làm Mandu</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
     </div>
 
     <!-- Navigation Links -->
@@ -422,7 +833,7 @@
             <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
         </div>
     </footer>
-
+    <div class="snowfall"></div>
 
 </body>
 

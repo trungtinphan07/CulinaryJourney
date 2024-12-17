@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            font-family: 'edo_szregular', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+
+        .content {
+            display: flex;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .food-item {
+            text-align: center;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .food-item h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .food-item p {
+            color: #777;
+            padding: 0 10px;
+        }
+
+        details {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        details summary {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            border-radius: 5px;
+            background-color: #474747;
+        }
+
+        nav a.highlighted {
+            background-color: #fae900;
+        }
+
+        .nav-links {
+
+            text-align: center;
+            padding: 20px 0;
+            background-color: #777;
+        }
+
+        .nav-links .link {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links .link:hover {
+            background-color: #e5533c;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+
+            text-indent: -10px;
+
+            text-align: center;
+            list-style-position: outside;
+
+        }
+
+        details a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+
+        }
+
+        footer .footer-center {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+
+        }
+
+        .highlighted {
+            background-color: #fae900;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Culinary Journey</h1>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
+    </header>
+    <nav>
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
+        <a href="korea.html">Đồ ăn Hàn Quốc</a>
+        <a href="japan.html">Đồ ăn Nhật Bản</a>
+        <a href="thailand.html"> Đồ ăn Thái Lan</a>
+        <a href="aumy.html">Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html" class="highlighted">Món tráng miệng</a>
+        <a href="nuocuong.html">Thức uống</a>
+    </nav>
+    <!-- Món ăn -->
+    <div class="content">
+        <!-- Món ăn -->
+        <div class="content">
+            <!-- Món ăn Bánh Flan -->
+            <div class="food-item">
+                <img src="https://file.hstatic.net/1000396324/file/banh-flan-socola-2_71a4b9be8ddc459c9be9a7226ae74476.jpg"
+                    alt="Bánh Flan">
+                <h3>Bánh Flan</h3>
+                <p>Bánh Flan là món tráng miệng mềm mịn, thơm ngọt từ sự kết hợp của trứng, sữa và caramel, tạo nên
+                    hương vị béo ngậy, tan chảy trong miệng.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Trứng gà</li>
+                            <li>Sữa tươi</li>
+                            <li>Đường</li>
+                            <li>Tinh chất vani</li>
+                            <li>Caramel (đường nấu chảy)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Đun chảy đường để làm caramel, đổ vào đáy khuôn.</p>
+                        <p>2. Đánh trứng nhẹ nhàng, thêm sữa và vani vào, khuấy đều.</p>
+                        <p>3. Lọc hỗn hợp qua rây để loại bỏ cặn và tạo độ mịn.</p>
+                        <p>4. Đổ hỗn hợp trứng sữa vào khuôn có caramel.</p>
+                        <p>5. Hấp hoặc nướng cách thủy bánh khoảng 30-40 phút đến khi chín.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=cZI5Uv8y3zs" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Bánh Flan</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <div class="food-item">
+                <img src="https://eggyolk.vn/wp-content/uploads/2024/08/Cach-lam-banh-panna-cotta-chanh-day.jpg"
+                    alt="Panna Cotta">
+                <h3>Panna Cotta</h3>
+                <p>Panna Cotta với kết cấu mịn màng, ngọt dịu, được làm từ kem tươi, đường và gelatin, thường được phục
+                    vụ kèm trái cây tươi hoặc sốt dâu.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Kem tươi</li>
+                            <li>Sữa</li>
+                            <li>Đường</li>
+                            <li>Gelatin</li>
+                            <li>Vani</li>
+                            <li>Sốt trái cây (tuỳ chọn)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Ngâm gelatin trong nước lạnh cho mềm.</p>
+                        <p>2. Đun nóng sữa và kem tươi, thêm đường và vani, khuấy đều.</p>
+                        <p>3. Cho gelatin vào hỗn hợp sữa nóng, khuấy tan.</p>
+                        <p>4. Đổ hỗn hợp vào khuôn, để nguội và cho vào tủ lạnh ít nhất 4 giờ.</p>
+                        <p>5. Khi dùng, trang trí với sốt trái cây hoặc trái cây tươi.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=tKVaP7Xmbzk" target="_blank"
+                                    rel="noopener noreferrer">Cách Panna Cotta</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 5 -->
+            <div class="food-item">
+                <img src="https://www.midwestliving.com/thmb/vRf9ewBdA6xvB7AFy_POTgZqn9M=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/CD_1140_macarons-2000-4425cb0d8eaf4dcfbdb20225b0ed1e2a.jpg"
+                    alt="Món 5">
+                <h3>Macaron</h3>
+                <p>Macaron có lớp vỏ giòn bên ngoài và nhân mịn, thường được làm từ bột hạnh nhân, đường và lòng trắng
+                    trứng, kết hợp với các loại nhân như socola, vani, trái cây.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Bột hạnh nhân</li>
+                            <li>Đường bột</li>
+                            <li>Lòng trắng trứng</li>
+                            <li>Đường cát</li>
+                            <li>Socola, vani, trái cây (tùy chọn cho nhân)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Trộn bột hạnh nhân và đường bột với nhau, rây mịn.</p>
+                        <p>2. Đánh lòng trắng trứng với đường cát đến khi tạo thành chóp mềm.</p>
+                        <p>3. Trộn đều hỗn hợp bột hạnh nhân với lòng trắng trứng.</p>
+                        <p>4. Vòi hỗn hợp vào các hình tròn trên giấy nướng, rồi nướng trong lò ở nhiệt độ 150°C khoảng
+                            15-20 phút.</p>
+                        <p>5. Sau khi bánh nguội, phết nhân lên một chiếc bánh, rồi ghép với chiếc bánh còn lại.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=8UpgK0cj7XY" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Macaron</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 5 -->
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8DLUMUDOdKP6N0r4RVI55zrtY2JNeDDyiA&s"
+                    alt="Bánh Quy">
+                <h3>Bánh Quy</h3>
+                <p>Bánh quy thơm ngon, giòn tan với vị ngọt nhẹ và hương bơ thơm đặc trưng. Đây là món ăn nhẹ lý tưởng
+                    cho mọi lứa tuổi.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Bột mì</li>
+                            <li>Đường</li>
+                            <li>Bơ</li>
+                            <li>Trứng</li>
+                            <li>Vanilla</li>
+                            <li>Nước</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Đánh bơ và đường cho mịn, sau đó thêm trứng và vanilla vào trộn đều.</p>
+                        <p>2. Từ từ cho bột mì vào, trộn cho đến khi thành một khối bột mịn.</p>
+                        <p>3. Cán bột thành miếng mỏng, sau đó cắt thành các hình dạng tùy thích.</p>
+                        <p>4. Nướng bánh ở nhiệt độ 180°C trong khoảng 10-15 phút cho đến khi bánh có màu vàng đều.</p>
+                        <p>5. Để nguội và thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=kWJZJzrl_X0" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Bánh Quy</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy5wfkonDFd78xT6XDxxoqzsEw1jZikJy7_w&s"
+                    alt="Tiramisu">
+                <h3>Tiramisu</h3>
+                <p>Tiramisu với hương vị nhẹ nhàng, kết hợp giữa kem phô mai mascarpone, cà phê đen và một chút rượu
+                    Marsala, mang đến một cảm giác vừa ngọt ngào vừa thanh mát.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Phô mai mascarpone</li>
+                            <li>Bánh ladyfingers</li>
+                            <li>Cà phê đen</li>
+                            <li>Rượu Marsala</li>
+                            <li>Đường</li>
+                            <li>Trứng</li>
+                            <li>Cacao bột</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Pha cà phê đen và thêm rượu Marsala vào.</p>
+                        <p>2. Đánh lòng đỏ trứng với đường cho đến khi tạo thành hỗn hợp đặc mịn.</p>
+                        <p>3. Thêm phô mai mascarpone vào hỗn hợp trứng và đánh đều cho mịn.</p>
+                        <p>4. Nhúng bánh ladyfingers vào cà phê, xếp vào khay, sau đó phủ lớp kem mascarpone lên trên.
+                        </p>
+                        <p>5. Lặp lại các lớp bánh và kem, cuối cùng rắc cacao lên mặt, rồi để tủ lạnh ít nhất 4 giờ
+                            trước khi thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=8ZyF7tQR3wQ" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Tiramisu</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Iej_b5YYTn-XmhUH3S8W3sTJ0TVBvJV14Q&s"
+                    alt="Cheesecake">
+                <h3>Cheesecake</h3>
+                <p>Cheesecake với lớp kem phô mai béo ngậy, thường được kết hợp với lớp đế bánh quy giòn và các loại
+                    trái cây hoặc sốt chua ngọt.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Phô mai kem</li>
+                            <li>Rượu vanilla</li>
+                            <li>Đường</li>
+                            <li>Trứng</li>
+                            <li>Đế bánh quy</li>
+                            <li>Butter (bơ)</li>
+                            <li>Trái cây tươi (dâu, kiwi, hoặc quả mọng)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Xay bánh quy để làm đế bánh, trộn với bơ và ép chặt vào đáy khuôn.</p>
+                        <p>2. Đánh phô mai kem với đường, trứng và rượu vanilla đến khi mịn.</p>
+                        <p>3. Đổ hỗn hợp phô mai lên đế bánh quy và nướng ở nhiệt độ 160°C trong khoảng 45 phút.</p>
+                        <p>4. Để cheesecake nguội, sau đó để lạnh trong tủ lạnh ít nhất 4 giờ trước khi thưởng thức.</p>
+                        <p>5. Trang trí với trái cây tươi hoặc sốt trái cây theo ý thích.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=Ey8yxtMOcMY" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Cheesecake</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 5 -->
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVa1n1QSGMOWFM1KcxYmeDeROL4-7KYYGEoQ&s"
+                    alt="Món 5">
+                <h3>Chè Thái</h3>
+                <p>Chè Thái là một món tráng miệng thơm ngon và đầy màu sắc với sự kết hợp của nhiều loại trái cây tươi,
+                    thạch, nước cốt dừa và đá bào.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Trái cây tươi: dưa hấu, thanh long, nhãn, vải</li>
+                            <li>Thạch</li>
+                            <li>Nước cốt dừa</li>
+                            <li>Đá bào</li>
+                            <li>Đường</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Cắt nhỏ trái cây tươi theo kích cỡ vừa ăn.</p>
+                        <p>2. Đun nước cốt dừa với đường cho tan chảy và nguội.</p>
+                        <p>3. Chuẩn bị thạch và cắt thành miếng nhỏ.</p>
+                        <p>4. Cho trái cây, thạch, đá bào vào ly, đổ nước cốt dừa lên trên.</p>
+                        <p>5. Thưởng thức món chè khi lạnh, có thể thêm đá nếu thích.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=QWiyd9HTlF4" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Chè Thái</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn -->
+            <div class="food-item">
+                <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/03460662-6f38-4360-9c1f-840b1227f87b/Derivates/b86fb65f-7eb6-4cb8-9f02-7a41b6abd11d.jpg"
+                    alt="Món 1">
+                <h3>Bánh Bông Lan</h3>
+                <p>Bánh bông lan mềm mịn, xốp nhẹ, thơm phức với hương vị bơ và trứng hòa quyện. Đây là món bánh phổ
+                    biến trong các bữa tiệc hoặc trà chiều.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Bột mì</li>
+                            <li>Trứng gà</li>
+                            <li>Đường</li>
+                            <li>Bơ</li>
+                            <li>Vanilla</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Đánh trứng với đường cho đến khi hỗn hợp bông mịn.</p>
+                        <p>2. Trộn bột mì và bơ vào hỗn hợp trứng, khuấy đều đến khi mịn.</p>
+                        <p>3. Thêm vanilla vào và khuấy đều.</p>
+                        <p>4. Đổ bột vào khuôn, nướng ở 170°C trong khoảng 25 phút.</p>
+                        <p>5. Để nguội, cắt thành từng miếng nhỏ và thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=iS_07jVlezc&pp=ygUMI2N1b25ib25na2hp"
+                                    target="_blank" rel="noopener noreferrer">Cách làm Bánh Bông Lan</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 1 -->
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrKjwLIsSv9wqy-tik8t8Cj7pf8E-niPBEAg&s"
+                    alt="Món 1">
+                <h3>Bánh Bò</h3>
+                <p>Bánh bò có kết cấu mềm xốp, có vị ngọt nhẹ, thơm mùi dừa và được thưởng thức kèm với nước cốt dừa
+                    hoặc sữa đặc.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Bột gạo</li>
+                            <li>Bột năng</li>
+                            <li>Men nở</li>
+                            <li>Nước cốt dừa</li>
+                            <li>Đường</li>
+                            <li>Vani</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Pha hỗn hợp bột gạo, bột năng, men nở với nước cốt dừa và đường.</p>
+                        <p>2. Để hỗn hợp nghỉ trong khoảng 30 phút cho men nở.</p>
+                        <p>3. Đun sôi nước, sau đó cho khuôn vào hấp cho bánh chín đều.</p>
+                        <p>4. Sau khi bánh chín, lấy ra để nguội.</p>
+                        <p>5. Dùng bánh bò với nước cốt dừa hoặc sữa đặc, thưởng thức ngay khi còn tươi.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=XR3PgAhBByY" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Bánh Bò</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 1 -->
+            <div class="food-item">
+                <img src="https://i.ytimg.com/vi/ttC1lW3NzqU/maxresdefault.jpg" alt="Bánh Khoai Mỡ">
+                <h3>Bánh Khoai Mỡ</h3>
+                <p>Bánh khoai mỡ có màu sắc hấp dẫn, kết hợp giữa vị ngọt tự nhiên của khoai mỡ và lớp bột chiên giòn,
+                    tạo nên một món ăn vặt thú vị.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Khoai mỡ</li>
+                            <li>Bột mì</li>
+                            <li>Sữa đặc</li>
+                            <li>Đường</li>
+                            <li>Muối</li>
+                            <li>Vani</li>
+                            <li>Dầu ăn (để chiên)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Khoai mỡ gọt vỏ, luộc chín và nghiền nhuyễn.</p>
+                        <p>2. Trộn khoai mỡ với bột mì, sữa đặc, đường và một chút muối.</p>
+                        <p>3. Thêm một ít vani để tạo mùi thơm, trộn đều thành khối dẻo.</p>
+                        <p>4. Chia bột thành những viên nhỏ, vo tròn rồi ấn dẹt.</p>
+                        <p>5. Cho bánh vào chiên vàng giòn, vớt ra để ráo dầu và thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=ttC1lW3NzqU" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Bánh Khoai Mỡ</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 5 -->
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThgqiyEsaqz3cNNuUszWTX3NzL7ZIKXJo6NQ&s"
+                    alt="Món 5">
+                <h3>Bánh Chuối</h3>
+                <p>Bánh chuối có hương vị ngọt ngào, mềm mịn, với sự kết hợp của chuối chín, bột mì và nước cốt dừa, tạo
+                    nên một món tráng miệng thơm ngon.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Chuối chín</li>
+                            <li>Bột mì</li>
+                            <li>Sữa đặc</li>
+                            <li>Nước cốt dừa</li>
+                            <li>Đường</li>
+                            <li>Trứng gà</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Lột vỏ chuối, cắt thành miếng nhỏ và nghiền nát.</p>
+                        <p>2. Trộn bột mì, đường, trứng, sữa đặc, nước cốt dừa với chuối nghiền.</p>
+                        <p>3. Đổ hỗn hợp vào khuôn, nướng ở nhiệt độ 180°C khoảng 30 phút cho đến khi vàng đều.</p>
+                        <p>4. Để nguội, cắt thành miếng vừa ăn và thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=19DuSaG9ISc" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Bánh Chuối</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 5 -->
+            <div class="food-item">
+                <img src="https://cayantrai.vn/wp-content/uploads/2023/08/canh-bao-suong-sao-ky-voi-gi-06-.8837.jpg"
+                    alt="Món 5">
+                <h3>Sương Sáo</h3>
+                <p>Sương sáo với vị thanh mát, ngọt nhẹ, có thể ăn kèm với nước cốt dừa, đá bào hoặc các loại siro tạo
+                    hương vị hấp dẫn.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Bột sương sáo</li>
+                            <li>Đường</li>
+                            <li>Nước</li>
+                            <li>Nước cốt dừa (tuỳ chọn)</li>
+                            <li>Đá bào (tuỳ chọn)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Hoà bột sương sáo vào nước rồi đun sôi cho đến khi sương sáo đông lại.</p>
+                        <p>2. Lọc sương sáo qua rây để loại bỏ tạp chất, cho vào khuôn chờ đông.</p>
+                        <p>3. Sau khi sương sáo đã đông, cắt thành từng miếng vừa ăn.</p>
+                        <p>4. Múc sương sáo vào bát, thêm nước cốt dừa và đá bào nếu muốn.</p>
+                        <p>5. Thêm đường hoặc siro theo khẩu vị, rồi thưởng thức món sương sáo mát lạnh.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=HRguYv6dIXo" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Sương Sáo</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 1 -->
+            <div class="food-item">
+                <img src="https://cdn.mediamart.vn/images/news/vao-bp-hc-cach-nu-che-da-dm-hi-phong-ngon-ngt-ngay_028720f1.jpg"
+                    alt="Chè Dừa Dầm">
+                <h3>Chè Dừa Dầm</h3>
+                <p>Chè dừa dầm với dừa tươi bào sợi, kết hợp với nước cốt dừa béo ngậy, thạch, đậu xanh và đá bào tạo
+                    nên một món ăn giải nhiệt lý tưởng.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Dừa tươi</li>
+                            <li>Thạch rau câu</li>
+                            <li>Đậu xanh</li>
+                            <li>Nước cốt dừa</li>
+                            <li>Đường</li>
+                            <li>Đá bào</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Nấu đậu xanh cho mềm, sau đó xay nhuyễn.</p>
+                        <p>2. Nấu thạch rau câu theo hướng dẫn, để nguội rồi cắt thành từng miếng nhỏ.</p>
+                        <p>3. Nạo dừa tươi thành sợi nhỏ.</p>
+                        <p>4. Pha nước cốt dừa với đường để tạo độ ngọt vừa phải.</p>
+                        <p>5. Cho tất cả nguyên liệu vào chén, thêm đá bào và nước cốt dừa, trộn đều và thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li><a href="https://www.youtube.com/watch?v=CW-wk5wQLOs" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Chè Dừa Dầm</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 5 -->
+            <div class="food-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR8izimhVe_JmRtPsc66Z9f33Q_pWXxrmCrA&s"
+                    alt="Món 5">
+                <h3>Rau Câu</h3>
+                <p>Rau câu với lớp thạch mềm mịn và vị ngọt thanh từ trái cây, nước dừa hoặc nước hoa quả, mang đến sự
+                    thanh mát và giải nhiệt tuyệt vời.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Gelatin</li>
+                            <li>Nước dừa</li>
+                            <li>Nước hoa quả (dưa hấu, cam, hoặc vải)</li>
+                            <li>Đường</li>
+                            <li>Trái cây (dưa hấu, vải, kiwi)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Ngâm gelatin trong nước lạnh cho nở ra.</p>
+                        <p>2. Đun sôi nước dừa và nước hoa quả cùng với đường cho đến khi đường tan hoàn toàn.</p>
+                        <p>3. Cho gelatin vào nước nóng, khuấy đều cho gelatin tan hết.</p>
+                        <p>4. Đổ hỗn hợp vào khuôn và để nguội, rồi cho vào tủ lạnh để đông lại.</p>
+                        <p>5. Lấy rau câu ra khỏi khuôn, trang trí với trái cây tươi và thưởng thức.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=lLpjf7wZvUc&pp=ygUPI2JpZW5fYmluaF9jaGF1"
+                                    target="_blank" rel="noopener noreferrer">Cách làm Rau Câu</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+            <!-- Món ăn 1 -->
+            <div class="food-item">
+                <img src="https://www.bartender.edu.vn/wp-content/uploads/2021/03/sua-chua-nha-dam.jpg"
+                    alt="Món Sữa Chua">
+                <h3>Sữa Chua</h3>
+                <p>Sữa chua là món ăn bổ dưỡng, có vị chua nhẹ và béo ngậy, giúp hỗ trợ tiêu hóa và cải thiện sức khỏe
+                    đường ruột.</p>
+                <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+                <details>
+                    <summary>Xem nguyên liệu và công thức</summary>
+                    <div>
+                        <h4>Nguyên liệu:</h4>
+                        <ul>
+                            <li>Sữa đặc</li>
+                            <li>Sữa tươi</li>
+                            <li>Men cái</li>
+                            <li>Nước cốt chanh (tuỳ chọn)</li>
+                        </ul>
+                        <h4>Công thức:</h4>
+                        <p>1. Đun sôi sữa tươi rồi để nguội khoảng 40-45°C.</p>
+                        <p>2. Pha sữa đặc với sữa tươi theo tỷ lệ 1:3, thêm men cái và khuấy đều.</p>
+                        <p>3. Đổ hỗn hợp vào hũ thủy tinh, đậy kín và ủ trong khoảng 6-8 tiếng ở nhiệt độ 40°C.</p>
+                        <p>4. Kiểm tra sữa chua đã đông lại, để nguội và cho vào tủ lạnh bảo quản.</p>
+                        <p>5. Thưởng thức sữa chua lạnh, có thể thêm hoa quả tươi hoặc mật ong.</p>
+                        <h4>Cách làm chi tiết:</h4>
+                        <ul>
+                            <li> <a href="https://www.youtube.com/watch?v=Eay7Cv1bNsw" target="_blank"
+                                    rel="noopener noreferrer">Cách làm Sữa Chua</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+    <div class="snowfall"></div>
+
+</body>
+
+</html>

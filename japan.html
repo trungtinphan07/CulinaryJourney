@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
     <style>
         @font-face {
-    font-family: 'edo_szregular';
-    src: url('edosz-webfont.woff2') format('woff2'),
-         url('edosz-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-}
         * {
             box-sizing: border-box;
         }
@@ -38,6 +38,30 @@
             text-align: center;
             padding: 20px 0;
             color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
         }
 
         header h1 {
@@ -111,6 +135,7 @@
             justify-content: center;
             background-color: #333;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
@@ -118,13 +143,16 @@
             text-align: center;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             border-radius: 5px;
             background-color: #474747;
         }
+
         nav a.highlighted {
             background-color: #fae900;
         }
+
         .nav-links {
 
             text-align: center;
@@ -249,6 +277,19 @@
             line-height: 1.5;
 
         }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
     </style>
 </head>
 
@@ -258,6 +299,10 @@
     <header>
         <h1>Culinary Journey</h1>
         <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
     </header>
     <nav>
         <a href="trangchu.html">Trang chủ</a>
@@ -265,6 +310,9 @@
         <a href="korea.html">Đồ ăn Hàn Quốc</a>
         <a href="japan.html" class="highlighted"> Đồ ăn Nhật Bản</a>
         <a href="thailand.html">Đồ ăn Thái Lan</a>
+        <a href="aumy.html">Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html">Món tráng miệng</a>
+        <a href="nuocuong.html">Thức uống</a>
     </nav>
     <!-- Món ăn -->
     <div class="content">
@@ -273,7 +321,7 @@
             <img src="https://imgur.com/kOFyhFu.jpeg" alt="Món 1">
             <h3>Sushi</h3>
             <p>Sushi có vị thanh nhẹ, tươi mát và hài hòa giữa cơm giấm chua ngọt, hải sản tươi sống, và các thành phần
-                khác như rau, rong biển,... tạo nên một trải nghiệm ăn uống tinh tế và đa chiều.</p>
+                khác như rau, rong biển, củ cải muối...</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
                 <summary>Xem nguyên liệu và công thức</summary>
@@ -295,7 +343,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/v8EvBRWo9No?si=_kcDQEG4eyat6sf1" target="_blank"
-                                rel="noopener noreferrer">Cách làm món sushi</a></li>
+                                rel="noopener noreferrer">Cách làm Sushi</a></li>
                     </ul>
                 </div>
             </details>
@@ -328,7 +376,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/LvHokoKfS0w?si=J5lrLa9oveb5jym0" target="_blank"
-                                rel="noopener noreferrer">Cách làm món mì ramen</a></li>
+                                rel="noopener noreferrer">Cách làm Mì Ramen</a></li>
                     </ul>
 
                 </div>
@@ -361,7 +409,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://www.youtube.com/watch?v=HxcWu5KNIHs" target="_blank"
-                                rel="noopener noreferrer">Cách làm món cơm lươn nướng</a></li>
+                                rel="noopener noreferrer">Cách làm Cơm Lươn Nướng</a></li>
                     </ul>
                 </div>
             </details>
@@ -399,9 +447,367 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/ynKfRURCtBk?si=9DrCvpOU3B5opZfU" target="_blank"
-                                rel="noopener noreferrer">Cách làm món takoyaki</a></li>
+                                rel="noopener noreferrer">Cách làm Takoyaki</a></li>
                     </ul>
 
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Tempura -->
+        <div class="food-item">
+            <img src="https://static01.nyt.com/images/2013/10/23/dining/23JPFLEX1/23JPFLEX1-superJumbo.jpg"
+                alt="Tempura">
+            <h3>Tempura</h3>
+            <p>Tempura là món ăn nổi tiếng của Nhật Bản với các nguyên liệu như tôm, rau củ được chiên giòn trong lớp
+                bột mỏng, thơm ngon, ăn kèm với nước chấm đặc trưng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Tôm tươi</li>
+                        <li>Cà rốt, khoai lang, bí ngòi</li>
+                        <li>Bột chiên Tempura</li>
+                        <li>Trứng gà</li>
+                        <li>Gia vị: Muối, tiêu, dầu ăn</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Chuẩn bị nguyên liệu: Tôm bóc vỏ, các loại rau củ cắt thành lát mỏng.</p>
+                    <p>2. Trộn bột chiên Tempura với trứng và nước lạnh để tạo hỗn hợp bột.</p>
+                    <p>3. Nhúng tôm và rau củ vào bột, sau đó chiên ngập dầu cho đến khi vàng giòn.</p>
+                    <p>4. Lọc dầu thừa và để Tempura ráo.</p>
+                    <p>5. Dọn Tempura ra đĩa và ăn kèm với nước chấm tương đen.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=14uFbyj-HGMK" target="_blank"
+                                rel="noopener noreferrer">Cách làm Tempura</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Udon -->
+        <div class="food-item">
+            <img src="https://hidafoods.vn/wp-content/uploads/2023/12/lam-mi-udon-thit-bo-1.jpg" alt="Udon">
+            <h3>Udon</h3>
+            <p>Udon với sợi mì dày, mềm, thường được ăn kèm với nước dùng nóng từ xương gà hoặc xương bò, cùng với một
+                số loại topping như tempura, trứng, hành lá và nori.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì Udon</li>
+                        <li>Nước dùng (xương gà hoặc xương bò)</li>
+                        <li>Trứng gà</li>
+                        <li>Tempura (tôm, rau củ chiên giòn)</li>
+                        <li>Hành lá, nori</li>
+                        <li>Gia vị: Nước tương, mirin, muối</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng: Đun sôi xương với gia vị, ninh trong khoảng 2-3 giờ để tạo ra nước dùng ngọt.
+                    </p>
+                    <p>2. Luộc mì Udon: Đun sôi nước và luộc mì Udon cho đến khi mềm, vớt ra và để ráo.</p>
+                    <p>3. Chiên tempura: Chiên tôm và rau củ với bột tempura cho giòn.</p>
+                    <p>4. Chế biến tô Udon: Cho mì vào tô, chan nước dùng nóng, thêm trứng, tempura, hành lá và nori lên
+                        trên.</p>
+                    <p>5. Thêm gia vị và thưởng thức món Udon nóng hổi.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://youtu.be/EXAMPLE_LINK" target="_blank" rel="noopener noreferrer">Cách làm
+                                Udon</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Okonomiyaki -->
+        <div class="food-item">
+            <img src="https://mia.vn/media/uploads/blog-du-lich/okonomiyaki-thumbnail-1687700798.jpeg"
+                alt="Okonomiyaki">
+            <h3>Bánh Xèo Nhật</h3>
+            <p>Bánh xèo Nhật Bản với lớp bột mỏng, bao gồm các nguyên liệu như thịt ba chỉ, hải sản, rau củ và được
+                chiên giòn, rưới lên sốt đặc biệt và thêm một lớp tương mayonnaise.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bột mì</li>
+                        <li>Thịt ba chỉ (hoặc tôm, mực)</li>
+                        <li>Cabbage (bắp cải)</li>
+                        <li>Trứng</li>
+                        <li>Gia vị: Muối, tiêu, tương Worcestershire, mayonnaise</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Trộn bột mì với nước, thêm trứng, muối, tiêu, rồi cho bắp cải thái nhỏ vào hỗn hợp.</p>
+                    <p>2. Làm nóng chảo, cho thịt ba chỉ hoặc hải sản lên, đổ hỗn hợp bột lên trên.</p>
+                    <p>3. Chiên cho đến khi hai mặt bánh vàng giòn.</p>
+                    <p>4. Rưới sốt Worcestershire lên bánh, thêm mayonnaise, dưa chua và rong biển lên trên.</p>
+                    <p>5. Cắt bánh thành miếng vừa ăn và thưởng thức ngay.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=qjtJguUkNac" target="_blank"
+                                rel="noopener noreferrer">Cách làm Okonomiyaki</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Cơm Cà Ri Nhật -->
+        <div class="food-item">
+            <img src="https://file.hstatic.net/200000574073/article/ca-ri-nhat_53e94f95cef547d0ba87a84bc0418242.jpg"
+                alt="Cơm Cà Ri Nhật">
+            <h3>Cơm Cà Ri</h3>
+            <p>Cơm cà ri mang hương vị đặc trưng với nước cà ri sánh mịn, thơm ngon, kết hợp với thịt gà, thịt bò hoặc
+                rau củ tươi ngon, thích hợp khẩu vị nhiều người.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm trắng</li>
+                        <li>Thịt gà hoặc thịt bò</li>
+                        <li>Cà rốt</li>
+                        <li>Khoai tây</li>
+                        <li>Gia vị: Bột cà ri Nhật, hành, tỏi, dầu ăn, nước tương</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Sơ chế thịt gà hoặc bò, cắt miếng vừa ăn, chiên sơ cho săn lại.</p>
+                    <p>2. Luộc khoai tây và cà rốt cho mềm, thái nhỏ.</p>
+                    <p>3. Nấu nước sốt cà ri Nhật với bột cà ri, hành, tỏi, nước dùng và gia vị.</p>
+                    <p>4. Cho thịt, khoai tây, cà rốt vào nồi nước sốt, nấu cho đến khi mọi thứ thấm gia vị.</p>
+                    <p>5. Dọn cà ri lên cơm trắng, thưởng thức khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=abuRMremLZQ" target="_blank"
+                                rel="noopener noreferrer">Cách làm Cơm Cà Ri Nhật</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Onigiri -->
+        <div class="food-item">
+            <img src="https://www.justonecookbook.com/wp-content/uploads/2023/09/Onigiri-Japanese-Rice-Balls-2063-I-1.jpg"
+                alt="Onigiri">
+            <h3>Onigiri</h3>
+            <p>Onigiri thường được nắm thành hình tam giác hoặc tròn, với phần nhân ở giữa như cá ngừ, mận muối,... bọc
+                bên ngoài là rong biển.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm Nhật</li>
+                        <li>Rong biển nori</li>
+                        <li>Cá ngừ đóng hộp</li>
+                        <li>Umeboshi (mận muối)</li>
+                        <li>Gia vị: Muối, đường</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu cơm Nhật cho thật dẻo, để nguội bớt.</p>
+                    <p>2. Trộn một ít muối vào cơm để tạo vị mặn nhẹ.</p>
+                    <p>3. Chia cơm thành từng phần nhỏ, ấn nhẹ và cho nhân (cá ngừ, umeboshi) vào giữa.</p>
+                    <p>4. Nắm cơm thành hình tam giác hoặc tròn, bọc lại với rong biển.</p>
+                    <p>5. Thưởng thức ngay hoặc dùng làm bữa ăn nhẹ.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=s6nfTGRDaBU" target="_blank"
+                                rel="noopener noreferrer">Cách làm Onigiri</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Tonkatsu -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ61iWPIRebzQ_SV4n_cxhGd013uW1KRtTsjA&s"
+                alt="Tonkatsu">
+            <h3>Tonkatsu</h3>
+            <p>Tonkatsu với lớp thịt heo chiên giòn, bên trong là miếng thịt mềm và ngọt. Món ăn này thường được ăn kèm
+                với cơm trắng, bắp cải xắt mỏng và nước sốt tonkatsu đặc trưng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt heo (sườn hoặc thăn)</li>
+                        <li>Bột mì</li>
+                        <li>Trứng</li>
+                        <li>Bột chiên xù</li>
+                        <li>Gia vị: Muối, tiêu</li>
+                        <li>Rau bắp cải xắt mỏng</li>
+                        <li>Gia vị: Nước sốt Tonkatsu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Thái thịt heo thành miếng vừa ăn, ướp muối và tiêu.</p>
+                    <p>2. Lăn thịt qua bột mì, trứng rồi bột chiên xù.</p>
+                    <p>3. Chiên thịt trong dầu nóng đến khi vàng giòn.</p>
+                    <p>4. Để ráo dầu, cắt thịt thành từng miếng nhỏ.</p>
+                    <p>5. Dọn Tonkatsu với cơm, bắp cải xắt mỏng và rưới nước sốt tonkatsu lên trên.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=F7fqY-bo2HI" target="_blank"
+                                rel="noopener noreferrer">Cách làm Tonkatsu</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Chawanmushi -->
+        <div class="food-item">
+            <img src="https://foodinjapan.org/wp-content/uploads/2022/04/147eacaa-706366.jpeg" alt="Chawanmushi">
+            <h3>Chawanmushi</h3>
+            <p>Chawanmushi có vị thanh nhẹ, thường được ăn kèm với các nguyên liệu như nấm, tôm, gà và nước dùng dashi,
+                mang đến một hương vị rất đặc trưng và ngon miệng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Trứng gà</li>
+                        <li>Nước dashi (hoặc nước dùng gà, cá)</li>
+                        <li>Tôm tươi</li>
+                        <li>Nấm shiitake</li>
+                        <li>Gà (thịt gà xay hoặc thái miếng nhỏ)</li>
+                        <li>Gia vị: Muối, đường, xì dầu, mirin</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Đánh trứng với nước dashi, thêm gia vị cho vừa ăn.</p>
+                    <p>2. Chuẩn bị các nguyên liệu: tôm, nấm, gà cắt nhỏ hoặc thái lát mỏng.</p>
+                    <p>3. Cho nguyên liệu vào bát chawanmushi, rồi đổ hỗn hợp trứng lên trên.</p>
+                    <p>4. Hấp bát chawanmushi trong nồi hấp khoảng 15-20 phút cho đến khi trứng chín mềm.</p>
+                    <p>5. Lấy ra và thưởng thức khi còn nóng, có thể rắc chút hành lá lên trên.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=ur3jOFH3AQI&pp=ygURI3RydW5naGFwa2lldXRoYWk%3D"
+                                target="_blank" rel="noopener noreferrer">Cách làm Chawanmushi</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Shabu-shabu -->
+        <div class="food-item">
+            <img src="https://cdn.tgdd.vn/2021/03/CookProduct/thumb1-1200x676-23.jpg" alt="Shabu-shabu">
+            <h3>Shabu-shabu</h3>
+            <p>Shabu-shabu với thịt bò tươi thái mỏng, rau củ và mì sợi được nhúng vào nồi nước dùng sôi. Món ăn này có
+                hương vị đậm đà nhưng nhẹ nhàng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt bò thái mỏng (thường là thăn hoặc ba chỉ)</li>
+                        <li>Cải thảo</li>
+                        <li>Chồi nấm enoki</li>
+                        <li>Cà rốt thái mỏng</li>
+                        <li>Mì sợi udon</li>
+                        <li>Nước dùng: Dashi, nước tương, mirin</li>
+                        <li>Sốt ponzu hoặc goma</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Chuẩn bị nước dùng bằng cách nấu dashi với nước tương và mirin.</p>
+                    <p>2. Rửa sạch và thái mỏng các loại rau củ và mì sợi.</p>
+                    <p>3. Đun sôi nước dùng trong nồi lẩu, giữ cho nó luôn nóng.</p>
+                    <p>4. Thả từng miếng thịt bò vào nồi nước dùng nóng, nhúng nhanh cho chín tái.</p>
+                    <p>5. Lấy thịt bò và rau củ ra, ăn kèm với sốt ponzu hoặc goma.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=CakODdWfaZ4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Shabu-shabu</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Yakisoba -->
+        <div class="food-item">
+            <img src="https://static01.nyt.com/images/2022/01/04/dining/kc-vegetable-yakisoba/kc-vegetable-yakisoba-superJumbo-v4.jpg"
+                alt="Yakisoba">
+            <h3>Yakisoba</h3>
+            <p>Yakisoba với sợi mì mềm dai kết hợp với thịt heo, rau củ, xào với sốt đặc trưng tạo nên một món ăn đậm
+                đà, hấp dẫn.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì yakisoba</li>
+                        <li>Thịt heo (hoặc gà)</li>
+                        <li>Cà rốt, cải bắp, hành tây</li>
+                        <li>Sốt Yakisoba (hoặc tương Worcestershire, xì dầu, đường)</li>
+                        <li>Gia vị: Muối, tiêu, dầu ăn</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc mì yakisoba trong nước sôi cho đến khi mềm, để ráo.</p>
+                    <p>2. Cắt thịt heo thành miếng nhỏ, xào cùng với hành tây và cà rốt cho đến khi chín.</p>
+                    <p>3. Thêm cải bắp vào xào cho chín tới.</p>
+                    <p>4. Cho mì vào chảo, thêm sốt yakisoba và gia vị, trộn đều cho thấm đều.</p>
+                    <p>5. Xào thêm 2-3 phút nữa rồi thưởng thức ngay.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=XaefY6F4nFg&pp=ygUJI21pdWp0c2Fv" target="_blank"
+                                rel="noopener noreferrer">Cách làm Yakisoba</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Miso Soup -->
+        <div class="food-item">
+            <img src="https://photo.znews.vn/w660/Uploaded/qhj_pwqvdvicbu/2022_05_10/4.jpg" alt="Miso Soup">
+            <h3>Súp Miso</h3>
+            <p>Súp Miso có vị umami đậm đà từ miso, kết hợp với hương vị nhẹ nhàng của tảo biển và đậu hũ, tạo nên một
+                món ăn thanh đạm, thơm ngon.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Miso (tương đậu nành)</li>
+                        <li>Đậu hũ</li>
+                        <li>Tảo biển wakame khô</li>
+                        <li>Hành lá</li>
+                        <li>Nước dùng dashi (hoặc nước lọc)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Hòa tan miso trong một chút nước ấm để tạo thành hỗn hợp đặc sệt.</p>
+                    <p>2. Đun nước dùng dashi sôi, sau đó cho miso đã hòa tan vào khuấy đều.</p>
+                    <p>3. Thêm đậu hũ cắt nhỏ và tảo biển vào nồi, đun thêm một chút cho các nguyên liệu nóng lên.</p>
+                    <p>4. Rắc hành lá cắt nhỏ lên bát súp khi ăn.</p>
+                    <p>5. Thưởng thức món Miso nóng hổi, thơm ngon.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=EY7JD5x7mU4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Súp Miso</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Sukiyaki -->
+        <div class="food-item">
+            <img src="https://static01.nyt.com/images/2024/02/28/multimedia/VC-sukiyaki-vmcq/VC-sukiyaki-vmcq-videoSmall.jpg"
+                alt="Sukiyaki">
+            <h3>Sukiyaki</h3>
+            <p>Sukiyaki gồm thịt bò thái lát mỏng, nấm, đậu hũ, rau, mì, được nấu chín trong một nồi lẩu với nước sốt
+                đặc biệt có vị ngọt, mặn từ miso, rượu mirin.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt bò thái lát mỏng</li>
+                        <li>Đậu hũ</li>
+                        <li>Rau cải bó xôi</li>
+                        <li>Miến</li>
+                        <li>Nấm hương, nấm kim châm</li>
+                        <li>Nước sốt Sukiyaki (nước tương, mirin, rượu sake, đường)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Chuẩn bị nước sốt Sukiyaki bằng cách trộn nước tương, mirin, sake và đường vào nồi.</p>
+                    <p>2. Đun sôi nước sốt, cho thịt bò vào và nấu cho đến khi chín.</p>
+                    <p>3. Thêm đậu hũ, nấm và rau vào nồi, đun thêm vài phút cho rau mềm và các nguyên liệu hòa quyện
+                        vào nước sốt.</p>
+                    <p>4. Cho miến vào nồi, khuấy đều và nấu thêm một chút để miến thấm nước sốt.</p>
+                    <p>5. Múc Sukiyaki ra bát, thưởng thức với cơm trắng và trứng sống nếu thích.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=OIbeJt3t4ug" target="_blank"
+                                rel="noopener noreferrer">Cách làm Sukiyaki</a></li>
+                    </ul>
                 </div>
             </details>
         </div>
@@ -426,7 +832,7 @@
             <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
         </div>
     </footer>
-
+    <div class="snowfall"></div>
 
 </body>
 

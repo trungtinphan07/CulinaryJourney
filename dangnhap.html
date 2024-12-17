@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            font-family: 'edo_szregular', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+        }
+
+        header h {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+        .container {
+            width: 40%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* Thêm position relative để các hình ảnh cây thông được đặt đúng vị trí */
+        }
+
+        .container::before,
+        .container::after {
+            content: "";
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .container::before {
+            top: 70px;
+            width: 300px;
+            /* Đặt chiều rộng cây thông */
+            height: 400px;
+            left: -330px;
+            /* Đặt cây thông bên trái */
+            background-image: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWZpaXdpeTN6eGRsaHU0MWFhY2o2bHVqbnBtNWdjd2pmMjBkNTdxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kMzqdxngP8HQBt1K6a/giphy.gif');
+            /* Thay thế bằng URL của hình cây thông bên trái */
+        }
+
+        .container::after {
+            top: 70px;
+            width: 250px;
+            height: 350px;
+            right: -330px;
+
+            background-image: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWR6Y2loaWl6eGQ2Nm5wMWl6ODN5dDRqNTBpeTE3M3MzZjZ4MnFzdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/B2KYCOdRfelrDqdNcI/giphy.gif');
+            /* Thay thế bằng URL của hình cây thông bên phải */
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #e74c3c;
+            /* Màu đỏ */
+            font-size: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #e67e22;
+            /* Màu cam */
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #f39c12;
+            /* Màu cam vàng */
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #e74c3c;
+            /* Màu đỏ */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+            /* Màu đỏ đậm khi hover */
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signup-link a {
+            color: #f39c12;
+            /* Màu vàng cam */
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+            text-indent: -10px;
+            text-align: center;
+            list-style-position: outside;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+        }
+
+        footer .footer-center {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+        }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h>Culinary Journey</h>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+    </header>
+    <div class="container">
+        <h1>Đăng Nhập</h1>
+        <form id="loginForm">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+
+            <label for="loginPassword">Mật khẩu:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+
+            <button type="submit">Đăng nhập</button>
+        </form>
+
+        <div class="error" id="errorMessage"></div>
+
+        <!-- Thêm liên kết đến trang đăng ký -->
+        <div class="signup-link">
+            <p>Chưa có tài khoản? <a href="dangky.html">Đăng ký ngay</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const loginEmail = document.getElementById('loginEmail').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            // Lấy thông tin người dùng đã đăng ký từ localStorage
+            const user = JSON.parse(localStorage.getItem('user'));
+
+            // Kiểm tra thông tin đăng nhập
+            if (user && user.email === loginEmail && user.password === loginPassword) {
+                alert("Đăng nhập thành công!");
+                window.location.href = 'trangchu.html'; // Chuyển tới trang đặt hàng
+            } else {
+                document.getElementById('errorMessage').innerText = "Email hoặc mật khẩu không chính xác!";
+            }
+        });
+    </script>
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+    <div class="snowfall"></div>
+</body>
+
+</html>

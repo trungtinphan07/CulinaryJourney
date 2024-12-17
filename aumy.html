@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            font-family: 'edo_szregular', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+
+        .content {
+            display: flex;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .food-item {
+            text-align: center;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .food-item h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .food-item p {
+            color: #777;
+            padding: 0 10px;
+        }
+
+        details {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        details summary {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            border-radius: 5px;
+            background-color: #474747;
+        }
+
+        nav a.highlighted {
+            background-color: #fae900;
+        }
+
+        .nav-links {
+
+            text-align: center;
+            padding: 20px 0;
+            background-color: #777;
+        }
+
+        .nav-links .link {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links .link:hover {
+            background-color: #e5533c;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+
+            text-indent: -10px;
+
+            text-align: center;
+            list-style-position: outside;
+
+        }
+
+        details a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+
+        }
+
+        footer .footer-center {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+
+        }
+
+        .highlighted {
+            background-color: #fae900;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Culinary Journey</h1>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
+    </header>
+    <nav>
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
+        <a href="korea.html">Đồ ăn Hàn Quốc</a>
+        <a href="japan.html">Đồ ăn Nhật Bản</a>
+        <a href="thailand.html">Đồ ăn Thái Lan</a>
+        <a href="aumy.html" class="highlighted"> Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html">Món tráng miệng</a>
+        <a href="nuocuong.html">Thức uống</a>
+    </nav>
+    <!-- Món ăn -->
+    <div class="content">
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpSkKP8LgqK1IPs87-PyJcveeRF0Wet-xgyw&s"
+                alt="Burger">
+            <h3>Burger</h3>
+            <p>Burger với lớp thịt bò nướng thơm ngon, kết hợp với rau sống tươi mát, phô mai béo ngậy và sốt đặc biệt,
+                tạo nên một món ăn đầy hương vị.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh mì burger</li>
+                        <li>Thịt bò xay</li>
+                        <li>Phô mai</li>
+                        <li>Xà lách</li>
+                        <li>Cà chua</li>
+                        <li>Gia vị: Muối, tiêu, sốt mayonnaise, ketchup</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nướng thịt bò xay thành miếng dày vừa ăn, nêm gia vị vừa phải.</p>
+                    <p>2. Cắt bánh mì burger và nướng sơ cho giòn.</p>
+                    <p>3. Xếp thịt bò, phô mai, rau sống, cà chua lên bánh mì.</p>
+                    <p>4. Thêm sốt mayonnaise và ketchup lên trên.</p>
+                    <p>5. Kẹp hai miếng bánh mì lại và thưởng thức ngay khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=5huEgJ_kHyU" target="_blank"
+                                rel="noopener noreferrer">Cách làm Burger</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://file.hstatic.net/200000868155/file/1647-post-cach-lam-pizza-bang-chao-chong-dinh-ngon-tuyet-tai-nha-1.jpg"
+                alt="Món Pizza">
+            <h3>Pizza</h3>
+            <p>Pizza với lớp vỏ giòn, phủ đầy phô mai, sốt cà chua và các loại topping như thịt xông khói, rau củ, và
+                các loại gia vị.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Vỏ pizza</li>
+                        <li>Phô mai Mozzarella</li>
+                        <li>Sốt cà chua</li>
+                        <li>Rau củ (nấm, ớt chuông, hành tây)</li>
+                        <li>Thịt xông khói hoặc xúc xích</li>
+                        <li>Gia vị (húng quế, oregano)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Làm nóng lò nướng ở nhiệt độ 220°C.</p>
+                    <p>2. Lăn vỏ pizza mỏng và cho lên khay nướng.</p>
+                    <p>3. Phết một lớp sốt cà chua lên vỏ pizza, rồi rắc phô mai Mozzarella lên.</p>
+                    <p>4. Thêm các topping như rau củ, thịt xông khói hoặc xúc xích lên trên.</p>
+                    <p>5. Nướng pizza trong 10-15 phút cho đến khi phô mai tan chảy và vỏ pizza vàng giòn.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=4wvfLclsjKE" target="_blank"
+                                rel="noopener noreferrer">Cách làm Pizza</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrmvbjfm1sUGOVabvZp_i1vn1kLV1_JSAw7A&s"
+                alt="Món Mì Ý">
+            <h3>Mì Ý</h3>
+            <p>Mì Ý với sợi mì dai ngon, thường được kết hợp với các loại sốt đậm đà như sốt cà chua, sốt kem, hoặc sốt
+                thịt bằm, tạo nên một hương vị tuyệt vời.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì Ý (spaghetti)</li>
+                        <li>Thịt bò bằm</li>
+                        <li>Cà chua</li>
+                        <li>Tỏi, hành tây</li>
+                        <li>Gia vị: Muối, tiêu, dầu olive</li>
+                        <li>Phô mai Parmesan</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu mì theo hướng dẫn trên bao bì, sau đó vớt ra để ráo.</p>
+                    <p>2. Xào hành tây và tỏi trong dầu olive cho thơm.</p>
+                    <p>3. Thêm thịt bò bằm vào xào cho đến khi thịt chín.</p>
+                    <p>4. Thêm cà chua cắt nhỏ, gia vị, và nấu đến khi sốt sệt lại.</p>
+                    <p>5. Trộn mì đã nấu với sốt, rắc phô mai Parmesan lên và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=dKtHsNNp9yk&pp=ygUJI21peXNvdGNh" target="_blank"
+                                rel="noopener noreferrer">Cách làm Mì Ý</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReBnQ776pnJJPUuO-soQzNdTPcfn1UhBOPYw&s"
+                alt="Món 1">
+            <h3>Tacos</h3>
+            <p>Tacos với lớp vỏ bánh bắp giòn rụm, nhân thịt nướng, rau sống và sốt đặc trưng mang đến một hương vị đậm
+                đà, phong phú.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh taco (vỏ bánh bắp)</li>
+                        <li>Thịt bò hoặc gà nướng</li>
+                        <li>Xà lách</li>
+                        <li>Cà chua</li>
+                        <li>Hành tây</li>
+                        <li>Phô mai bào</li>
+                        <li>Sốt salsa</li>
+                        <li>Gia vị: Tỏi, tiêu, ớt</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nướng thịt (bò hoặc gà) với gia vị cho đến khi chín và thơm.</p>
+                    <p>2. Làm nóng vỏ bánh taco trong chảo cho giòn.</p>
+                    <p>3. Cắt nhỏ rau xà lách, cà chua và hành tây.</p>
+                    <p>4. Xếp thịt nướng vào bánh taco, thêm rau sống, phô mai bào và sốt salsa.</p>
+                    <p>5. Thêm gia vị cho vừa miệng và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=WZlVhOtPZGE" target="_blank"
+                                rel="noopener noreferrer">Cách làm Tacos</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://arteflame.com/cdn/shop/articles/perfectly-grilled-beef-steak-arteflame.webp?v=1727908623&width=1600"
+                alt="Món 1">
+            <h3>Beef Steak</h3>
+            <p>Beef Steak với thịt bò mềm mại, được nướng ở nhiệt độ hoàn hảo, ăn kèm với khoai tây chiên giòn và nước
+                sốt thơm ngon.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt bò (sirloin, ribeye hoặc tenderloin)</li>
+                        <li>Khoai tây</li>
+                        <li>Rau salad</li>
+                        <li>Gia vị: Muối, tiêu, tỏi, dầu olive</li>
+                        <li>Nước sốt (tùy chọn): Sốt nấm, sốt tiêu đen</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Làm sạch thịt bò, dùng giấy lau khô và ướp gia vị với muối, tiêu, tỏi băm nhỏ.</p>
+                    <p>2. Làm nóng chảo với dầu olive, sau đó cho thịt bò vào nướng từng mặt khoảng 3-5 phút tùy độ chín
+                        mong muốn.</p>
+                    <p>3. Cắt khoai tây thành miếng vừa ăn, chiên giòn hoặc nướng trong lò.</p>
+                    <p>4. Chuẩn bị rau salad và các loại rau ăn kèm.</p>
+                    <p>5. Xếp thịt bò lên đĩa, kèm khoai tây và rau salad, rưới nước sốt lên trên nếu muốn.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=oX_GoHQk72s" target="_blank"
+                                rel="noopener noreferrer">Cách làm Beef Steak</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Lasagna -->
+        <div class="food-item">
+            <img src="https://aztraining.vn/wp-content/uploads/2024/04/Lasagna-2.jpg" alt="Lasagna">
+            <h3>Lasagna</h3>
+            <p>Lasagna với các lớp mì mỏng, thịt xay, sốt cà chua, phô mai và gia vị tạo nên hương vị đậm đà, béo ngậy
+                và thơm ngon.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì lasagna</li>
+                        <li>Thịt bò xay</li>
+                        <li>Sốt cà chua</li>
+                        <li>Phô mai mozzarella</li>
+                        <li>Phô mai Parmesan</li>
+                        <li>Tỏi, hành, gia vị</li>
+                        <li>Dầu ô liu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu mì lasagna trong nước sôi cho mềm, sau đó vớt ra để ráo.</p>
+                    <p>2. Xào thịt bò với tỏi, hành và gia vị cho chín đều.</p>
+                    <p>3. Đổ sốt cà chua vào thịt xay, nấu cho đến khi sốt thấm đều.</p>
+                    <p>4. Làm các lớp lasagna: xếp mì, thịt, phô mai vào khuôn, cứ như vậy cho đến hết nguyên liệu.</p>
+                    <p>5. Nướng lasagna trong lò ở 180°C trong 25-30 phút đến khi vàng đều và phô mai chảy ra.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=Gbyr6KogiYU" target="_blank"
+                                rel="noopener noreferrer">Cách làm Lasagna</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <div class="food-item">
+            <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/44d0821e0ef635fbb459d44156fe501c/Derivates/03ddcb95a40648b24410d7f62ba22d42c6a1b78c.jpg"
+                alt="Fish and Chips">
+            <h3>Fish and Chips</h3>
+            <p>Fish and Chips gồm cá tẩm bột chiên giòn và khoai tây chiên giòn, ăn kèm với sốt tartar hoặc sốt chanh.
+            </p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cá tươi (cá tuyết, cá hồi, hoặc cá trắng)</li>
+                        <li>Bột chiên giòn</li>
+                        <li>Khoai tây</li>
+                        <li>Gia vị: Muối, tiêu, bột nở</li>
+                        <li>Chanh</li>
+                        <li>Sốt tartar</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Lột vỏ và cắt khoai tây thành từng miếng dài, sau đó chiên vàng giòn.</p>
+                    <p>2. Tẩm bột chiên giòn cho cá đã rửa sạch, sau đó chiên trong dầu nóng cho đến khi bột vàng giòn
+                        và cá chín.</p>
+                    <p>3. Vớt cá và khoai tây ra đĩa, để ráo dầu.</p>
+                    <p>4. Cắt chanh thành lát và vắt nước chanh lên cá để tăng thêm hương vị.</p>
+                    <p>5. Dọn cá và khoai tây chiên với sốt tartar hoặc tương ớt, thưởng thức khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=gDu6KQfr5jU" target="_blank"
+                                rel="noopener noreferrer">Cách làm Fish and Chips</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://www.allrecipes.com/thmb/F1rucOY3FQT5Ic0oyxdLoqU_yKc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/222006-disneys-ratatouille-DDMFS-4x3-36eb15843ab548a79e7aab761dac92e1.jpg"
+                alt="Món Ratatouille">
+            <h3>Ratatouille</h3>
+            <p>Ratatouille với các loại rau củ như cà tím, bí ngòi, ớt chuông, cà chua nấu chín mềm trong sốt thảo mộc,
+                mang đến hương vị tươi mát và đậm đà.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cà tím</li>
+                        <li>Bí ngòi</li>
+                        <li>Cà chua</li>
+                        <li>Ớt chuông</li>
+                        <li>Tỏi</li>
+                        <li>Hành tây</li>
+                        <li>Dầu olive</li>
+                        <li>Gia vị: Muối, tiêu, húng quế, thyme</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Cắt các loại rau củ thành từng lát mỏng.</p>
+                    <p>2. Xào hành tây và tỏi trong dầu olive cho thơm.</p>
+                    <p>3. Thêm các loại rau củ vào, xào đều với gia vị, nấu cho mềm.</p>
+                    <p>4. Đun nhỏ lửa trong khoảng 20 phút cho rau thấm gia vị.</p>
+                    <p>5. Thưởng thức món Ratatouille với cơm hoặc bánh mì.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=KC55TYejBjI" target="_blank"
+                                rel="noopener noreferrer">Cách làm Ratatouille</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn 5 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG-7o9TcfULJOnE8hLShun6GaXZ_BnoByu9Q&s"
+                alt="Món 5">
+            <h3>Burrito</h3>
+            <p>Burrito gồm bánh tortilla cuốn với nhân thịt xay, cơm, đậu, rau sống, và sốt salsa, tạo nên một hương vị
+                đậm đà, thơm ngon và bổ dưỡng.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh tortilla</li>
+                        <li>Thịt xay (bò hoặc gà)</li>
+                        <li>Cơm trắng</li>
+                        <li>Đậu đen</li>
+                        <li>Rau xà lách, cà chua</li>
+                        <li>Sốt salsa</li>
+                        <li>Phô mai cheddar</li>
+                        <li>Gia vị: Tỏi, hành, ớt</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Xào thịt xay với gia vị tỏi, hành, ớt cho chín và thơm.</p>
+                    <p>2. Nấu cơm trắng chín mềm.</p>
+                    <p>3. Làm nóng bánh tortilla trên chảo, sau đó cho cơm, đậu, thịt xay, rau sống, phô mai và sốt
+                        salsa lên.</p>
+                    <p>4. Cuộn chặt bánh tortilla lại sao cho các nguyên liệu không bị rơi ra ngoài.</p>
+                    <p>5. Cắt Burrito thành từng miếng và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=8mOuQPG6Bi4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Burrito</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn 5 -->
+        <div class="food-item">
+            <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/800x0/filters:quality(95)/https://cms-prod.s3-sgn09.fptcloud.com/mach_ban_6_cach_lam_banh_mi_sandwich_day_du_dinh_duong_1_8756a3e8e2.png"
+                alt="Món 5">
+            <h3>Sandwich</h3>
+            <p>Sandwich với các nguyên liệu đơn giản nhưng đầy đủ dinh dưỡng. Với lớp bánh mì mềm, thịt nguội, rau sống
+                và sốt mayonnaise, thích hợp cho bữa sáng hoặc bữa phụ.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh mì sandwich</li>
+                        <li>Thịt nguội</li>
+                        <li>Phô mai</li>
+                        <li>Xà lách</li>
+                        <li>Cà chua</li>
+                        <li>Sốt mayonnaise</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Cắt bánh mì sandwich thành 2 lát đều nhau.</p>
+                    <p>2. Đặt một lát phô mai lên một lát bánh mì.</p>
+                    <p>3. Xếp thịt nguội, xà lách, cà chua lên trên.</p>
+                    <p>4. Thêm sốt mayonnaise vào giữa các lớp nguyên liệu.</p>
+                    <p>5. Kẹp lại hai lát bánh mì và cắt đôi. Thưởng thức ngay.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=FXxPTsrqqOE" target="_blank"
+                                rel="noopener noreferrer">Cách làm Sandwich</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn -->
+        <div class="food-item">
+            <img src="https://thucphamplaza.com/wp-content/uploads/products_img/mon-au-poutine.jpg" alt="Món Poutine">
+            <h3>Poutine</h3>
+            <p>Poutine gồm khoai tây chiên giòn, phủ lên trên là nước sốt thịt béo ngậy và pho mát tươi.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Khoai tây</li>
+                        <li>Pho mát tươi (cheddar hoặc mozzarella)</li>
+                        <li>Nước sốt thịt</li>
+                        <li>Gia vị: Muối, tiêu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Gọt vỏ khoai tây, thái thành miếng vừa ăn và chiên giòn trong dầu nóng.</p>
+                    <p>2. Làm nước sốt thịt: Đun sôi thịt bò hoặc thịt gà với nước và gia vị cho đến khi sánh lại.</p>
+                    <p>3. Cho khoai tây chiên ra đĩa, rưới nước sốt thịt lên trên.</p>
+                    <p>4. Rắc pho mát tươi lên, sau đó để nước sốt nóng chảy lên pho mát.</p>
+                    <p>5. Thưởng thức ngay khi món ăn còn nóng, có thể thêm tiêu hoặc gia vị theo khẩu vị.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=4QcPCcSCBJc" target="_blank"
+                                rel="noopener noreferrer">Cách làm Poutine</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Kebab -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6spBswvizIqbdkoVPePzkd4iHr8r3FRXiMw&s"
+                alt="Món Kebab">
+            <h3>Kebab</h3>
+            <p>Kebab với thịt nướng mềm, gia vị đậm đà, thường được cuốn trong bánh mì hoặc ăn kèm với cơm, rau củ, và
+                sốt chua ngọt.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt nướng (thường là thịt cừu, gà, bò)</li>
+                        <li>Bánh mì hoặc cơm</li>
+                        <li>Rau sống (xà lách, cà chua, hành tây)</li>
+                        <li>Sốt chua ngọt hoặc mayonnaise</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ướp thịt với gia vị (tỏi, ớt, nghệ, dầu olive) trong vài giờ cho thấm gia vị.</p>
+                    <p>2. Nướng thịt cho đến khi vàng đều, thơm ngon.</p>
+                    <p>3. Cắt bánh mì hoặc chuẩn bị cơm để làm nền cho Kebab.</p>
+                    <p>4. Xếp rau sống lên nền bánh mì hoặc cơm.</p>
+                    <p>5. Cho thịt nướng lên, thêm sốt chua ngọt hoặc mayonnaise và thưởng thức ngay.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=sMLLQ8L7pRU&pp=ygUOI2JhbmhteXRhbWdpYWM%3D"
+                                target="_blank" rel="noopener noreferrer">Cách làm Kebab</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <div class="food-item">
+            <img src="https://www.thespruceeats.com/thmb/plzoIrSo4bE_PZlbaYuQD-ou_eM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/greek-chicken-souvlaki-gyro-wrap-3958285-Hero_01-f7c0f7c283094126b5c29a01fa77da4a.jpg"
+                alt="Món 1">
+            <h3>Souvlaki</h3>
+            <p>Souvlaki gồm các miếng thịt nướng (thường là thịt lợn, gà hoặc cừu) được xiên vào que và ăn kèm với bánh
+                mì pita, rau sống và sốt tzatziki thơm ngon.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt nướng (lợn, gà, cừu)</li>
+                        <li>Bánh pita</li>
+                        <li>Ớt chuông, hành tây, cà chua</li>
+                        <li>Gia vị: Tỏi, chanh, dầu ôliu, oregano</li>
+                        <li>Sốt tzatziki</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ướp thịt với tỏi, dầu ôliu, chanh, oregano và gia vị cho thấm đều.</p>
+                    <p>2. Xiên thịt vào que và nướng trên vỉ than cho đến khi thịt chín vàng đều.</p>
+                    <p>3. Cắt hành tây, ớt chuông, cà chua thành miếng vừa ăn.</p>
+                    <p>4. Nướng bánh pita trên bếp hoặc trong lò cho nóng giòn.</p>
+                    <p>5. Xếp thịt nướng, rau sống và sốt tzatziki vào bánh pita, thưởng thức ngay khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=GegV8ggmzbw" target="_blank"
+                                rel="noopener noreferrer">Cách làm Souvlaki</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <div class="food-item">
+            <img src="https://www.seriouseats.com/thmb/QJZXQHDXBfTiUSKstQ1uskJc31g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SEA-best-grilled-hot-dogs-recipe-hero-02-9d245c0d43874a3da13a7228682b0dce.jpg"
+                alt="Món Hot Dog">
+            <h3>Hot Dog</h3>
+            <p>Hot Dog với xúc xích thơm ngon, được kẹp trong bánh mì dài, thường được ăn kèm với các loại gia vị, sốt
+                và rau củ.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh mì dài</li>
+                        <li>Xúc xích</li>
+                        <li>Rau xà lách</li>
+                        <li>Cà chua</li>
+                        <li>Sốt mayonnaise</li>
+                        <li>Sốt ketchup</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nướng xúc xích trên bếp hoặc vỉ nướng cho đến khi vàng đều.</p>
+                    <p>2. Cắt bánh mì dài theo chiều ngang và nướng sơ qua để bánh mì giòn.</p>
+                    <p>3. Xếp xúc xích vào trong bánh mì, thêm rau xà lách và cà chua cắt lát.</p>
+                    <p>4. Thêm sốt mayonnaise và ketchup tùy theo khẩu vị.</p>
+                    <p>5. Kẹp bánh mì lại và thưởng thức ngay khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=QcP8Xp9_Dk8" target="_blank"
+                                rel="noopener noreferrer">Cách làm Hot Dog</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn -->
+        <div class="food-item">
+            <img src="https://images.cookforyourlife.org/wp-content/uploads/2018/08/shutterstock_53574826.jpg"
+                alt="Món 1">
+            <h3>Risotto</h3>
+            <p>Risotto với cơm mềm ngấm nước dùng, được nấu với nhiều loại nguyên liệu phong phú như nấm, hải sản hoặc
+                rau củ, mang đến hương vị thơm ngon và đậm đà.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm Arborio (hoặc gạo nấu risotto)</li>
+                        <li>Nước dùng (gà hoặc rau củ)</li>
+                        <li>Nấm tươi</li>
+                        <li>Hành tây</li>
+                        <li>Phô mai Parmesan</li>
+                        <li>Bơ</li>
+                        <li>Rượu vang trắng</li>
+                        <li>Gia vị: Muối, tiêu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Xào hành tây băm nhỏ với bơ cho thơm.</p>
+                    <p>2. Thêm nấm, xào cho đến khi nấm mềm.</p>
+                    <p>3. Cho cơm Arborio vào và xào đều, cho đến khi cơm hơi trong.</p>
+                    <p>4. Thêm rượu vang trắng và khuấy đều cho đến khi rượu bốc hơi.</p>
+                    <p>5. Dần dần thêm nước dùng, khuấy đều và để cơm nở mềm. Tiếp tục thêm nước dùng cho đến khi cơm
+                        chín.</p>
+                    <p>6. Khi cơm chín, cho phô mai Parmesan vào, khuấy đều và nêm gia vị vừa ăn.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=h8PI_v0dop0" target="_blank"
+                                rel="noopener noreferrer">Cách làm Risotto</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+    </div>
+
+    <!-- Navigation Links -->
+
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+    <div class="snowfall"></div>
+
+</body>
+
+</html>

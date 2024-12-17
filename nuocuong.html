@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Journey</title>
+    <link rel="icon" href="https://imgur.com/GNQReoI.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            font-family: 'edo_szregular', sans-serif;
+            background-color: #e5533c;
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+
+
+        .content {
+            display: flex;
+            background-image: url('https://imgur.com/LzurwfE.jpeg');
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .food-item {
+            text-align: center;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .food-item h3 {
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .food-item p {
+            color: #777;
+            padding: 0 10px;
+        }
+
+        details {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        details summary {
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            border-radius: 5px;
+            background-color: #474747;
+        }
+
+        nav a.highlighted {
+            background-color: #fae900;
+        }
+
+        .nav-links {
+
+            text-align: center;
+            padding: 20px 0;
+            background-color: #777;
+        }
+
+        .nav-links .link {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links .link:hover {
+            background-color: #e5533c;
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        details ul {
+            padding-left: 15px;
+
+            margin: 0;
+        }
+
+        details li {
+            padding-left: 5px;
+
+            text-indent: -10px;
+
+            text-align: center;
+            list-style-position: outside;
+
+        }
+
+        details a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        footer li {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e5533c;
+            text-decoration: underline;
+        }
+
+        footer .footer-left {
+            flex: 1;
+            text-align: left;
+
+        }
+
+        footer .footer-center {
+            text-align: center;
+
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        footer .footer-right {
+            text-align: right;
+
+        }
+
+        footer img {
+            max-width: 200px;
+            height: auto;
+            border-radius: 10%;
+
+        }
+
+        .highlighted {
+            background-color: #fae900;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 1.5;
+
+        }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
+    </style>
+</head>
+
+<body>
+    <audio autoplay>
+        <source src="vietnam.mp3" type="audio/mp3">
+    </audio>
+    <!-- Header -->
+    <header>
+        <h1>Culinary Journey</h1>
+        <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
+    </header>
+    <nav>
+        <a href="trangchu.html">Trang chủ</a>
+        <a href="vietnam.html">Đồ ăn Việt Nam</a>
+        <a href="korea.html">Đồ ăn Hàn Quốc</a>
+        <a href="japan.html">Đồ ăn Nhật Bản</a>
+        <a href="thailand.html"> Đồ ăn Thái Lan</a>
+        <a href="aumy.html">Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html">Món tráng miệng</a>
+        <a href="nuocuong.html" class="highlighted">Thức uống</a>
+    </nav>
+    <!-- Món ăn -->
+    <div class="content">
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_H6qogCwC__k2k9yD-InZNyqhB-Ggkr4p5A&s"
+                alt="Trà Sữa">
+            <h3>Trà Sữa</h3>
+            <p>Trà sữa có hương vị ngọt ngào, kết hợp giữa trà đen đậm đà và sữa tươi mịn màng, là món uống yêu thích
+                của giới trẻ.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Trà đen</li>
+                        <li>Sữa đặc</li>
+                        <li>Sữa tươi</li>
+                        <li>Đường</li>
+                        <li>Trân châu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Hãm trà đen với nước sôi khoảng 5 phút, sau đó lọc lấy nước trà.</p>
+                    <p>2. Thêm sữa đặc và đường vào trà, khuấy đều cho đến khi tan hoàn toàn.</p>
+                    <p>3. Thêm sữa tươi vào trà, tiếp tục khuấy đều.</p>
+                    <p>4. Nấu trân châu theo hướng dẫn và cho vào ly.</p>
+                    <p>5. Rót trà sữa vào ly, thêm đá và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=TWiHYFFPSvQ" target="_blank"
+                                rel="noopener noreferrer">Cách làm món Trà Sữa</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 2 -->
+        <div class="food-item">
+            <img src="https://pozaatea.vn/wp-content/uploads/2023/12/ca-phe-sua.jpg" alt="Cà Phê Sữa Đá">
+            <h3>Cà Phê Sữa Đá</h3>
+            <p>Cà phê sữa đá là sự kết hợp tuyệt vời giữa cà phê đen đậm và sữa đặc ngọt ngào, tạo nên thức uống đầy sức
+                sống cho buổi sáng.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cà phê đen</li>
+                        <li>Sữa đặc</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Pha cà phê đen theo khẩu vị.</p>
+                    <p>2. Cho đá vào ly, thêm sữa đặc vào cà phê.</p>
+                    <p>3. Rót cà phê sữa vào ly đá, khuấy đều và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=GKZwezHDzzo" target="_blank"
+                                rel="noopener noreferrer">Cách làm món Cà Phê Sữa Đá</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 3 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkLnJyYYri9Da5YC0pRabqdJbObKw2repx_A&s"
+                alt="Sinh Tố Bơ">
+            <h3>Sinh Tố Bơ</h3>
+            <p>Sinh tố bơ với hương vị béo ngậy từ bơ, kết hợp với sữa tươi và đá xay, mang đến một thức uống giải khát
+                tuyệt vời.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bơ chín</li>
+                        <li>Sữa đặc</li>
+                        <li>Sữa tươi</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Lọc bỏ hạt và vỏ bơ, cho vào máy xay.</p>
+                    <p>2. Thêm sữa đặc, sữa tươi và đá viên vào máy xay.</p>
+                    <p>3. Xay nhuyễn tất cả nguyên liệu cho đến khi mịn màng.</p>
+                    <p>4. Rót ra ly và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=v-o_jT5V154" target="_blank"
+                                rel="noopener noreferrer">Cách làm Sinh Tố Bơ</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 4 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPBbpn-hdvOh9_DvcIF0P_8rb2ipc4EX2m2w&s"
+                alt="Nước Ép Cam">
+            <h3>Nước Ép Cam</h3>
+            <p>Nước ép cam tươi mát, chứa nhiều vitamin C giúp bổ sung năng lượng cho ngày mới năng động, là thức uống
+                yêu thích vào mùa hè.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cam tươi</li>
+                        <li>Đường</li>
+                        <li>Nước lọc</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Vắt cam lấy nước cốt.</p>
+                    <p>2. Cho nước lọc và đường vào hòa tan.</p>
+                    <p>3. Rót ra ly, thêm đá viên và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=UoztG_RbhLU" target="_blank"
+                                rel="noopener noreferrer">Cách làm Nước Ép Cam</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 5 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBMfkEyMbygb4A-QNHh0_zqGLoi-G6zrgQXA&s"
+                alt="Chè Dưỡng Nhan">
+            <h3>Chè Dưỡng Nhan</h3>
+            <p>Chè dưỡng nhan với sự kết hợp hoàn hảo giữa hạt sen, long nhãn và các loại thảo dược giúp đẹp da và cải
+                thiện sức khỏe.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Hạt sen</li>
+                        <li>Long nhãn</li>
+                        <li>Đường phèn</li>
+                        <li>Gừng tươi</li>
+                        <li>Nhục đậu khấu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ngâm hạt sen trong nước ấm cho mềm.</p>
+                    <p>2. Nấu hạt sen và long nhãn trong nước với gừng và nhục đậu khấu.</p>
+                    <p>3. Khi chè sôi, cho đường phèn vào nấu đến khi tan.</p>
+                    <p>4. Dùng nóng hoặc lạnh tùy thích.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=wVs3aNhfbVA&vl=vi" target="_blank"
+                                rel="noopener noreferrer">Cách làm Chè Dưỡng Nhan</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 6 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaGeo2qO9y-3rbrJdTPhgHMjL7XFHuB-gDLQ&s"
+                alt="Yến Chưng">
+            <h3>Yến Chưng</h3>
+            <p>Yến chưng là món ăn bổ dưỡng được làm từ tổ yến, hạt sen, táo đỏ giúp cải thiện sức khỏe và làn da.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Tổ yến</li>
+                        <li>Hạt sen</li>
+                        <li>Táo đỏ</li>
+                        <li>Đường phèn</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Rửa sạch tổ yến và hạt sen.</p>
+                    <p>2. Cho yến vào bát, thêm hạt sen và táo đỏ.</p>
+                    <p>3. Chưng cách thủy trong khoảng 30-40 phút, sau đó cho đường phèn vào.</p>
+                    <p>4. Chưng thêm 10 phút rồi thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=Ff0xkGUfjWw" target="_blank"
+                                rel="noopener noreferrer">Cách làm Yến Chưng</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 7 -->
+        <div class="food-item">
+            <img src="https://dayphache.edu.vn/wp-content/uploads/2024/06/cach-lam-tra-dao.jpg" alt="Trà Đào">
+            <h3>Trà Đào</h3>
+            <p>Trà đào mát lạnh kết hợp vị chát của trà xanh và vị ngọt thanh của đào, tạo nên món thức uống thư giãn
+                tuyệt vời.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Trà xanh</li>
+                        <li>Đào tươi hoặc đào ngâm</li>
+                        <li>Đường phèn</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Pha trà xanh với nước sôi, để nguội.</p>
+                    <p>2. Cắt đào thành lát mỏng và cho vào trà.</p>
+                    <p>3. Thêm đường phèn vào trà và khuấy đều.</p>
+                    <p>4. Thêm đá viên vào ly và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=qtcXqABcABI" target="_blank"
+                                rel="noopener noreferrer">Cách làm Trà Đào</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 2 -->
+        <div class="food-item">
+            <img src="https://static.wixstatic.com/media/bdc8a3_060d5a01fd3445e39227afeeecae0017~mv2.jpg/v1/fill/w_480,h_322,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/bdc8a3_060d5a01fd3445e39227afeeecae0017~mv2.jpg"
+                alt="Cacao Đá Xay">
+            <h3>Cacao Đá Xay</h3>
+            <p>Cacao đá xay là thức uống mát lạnh, kết hợp giữa hương vị đậm đà của cacao và độ mịn của đá xay, tạo nên
+                cảm giác sảng khoái và ngọt ngào.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bột cacao</li>
+                        <li>Sữa tươi</li>
+                        <li>Sữa đặc</li>
+                        <li>Đá viên</li>
+                        <li>Kem tươi (tùy chọn)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Cho bột cacao, sữa tươi và sữa đặc vào máy xay sinh tố.</p>
+                    <p>2. Thêm đá viên vào máy và xay nhuyễn đến khi hỗn hợp mịn.</p>
+                    <p>3. Rót hỗn hợp ra ly.</p>
+                    <p>4. Trang trí bằng kem tươi hoặc bột cacao tùy ý.</p>
+                    <p>5. Thưởng thức ngay khi còn lạnh.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=pxmuVE8__Ck" target="_blank"
+                                rel="noopener noreferrer">Cách làm Cacao Đá Xay</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 9 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvY0RlGNy6thTEwDfLUvcRXqQ69Y5CuXOVUw&s"
+                alt="Trà Chanh Mật Ong">
+            <h3>Trà Chanh Mật Ong</h3>
+            <p>Trà chanh mật ong là sự kết hợp hoàn hảo giữa vị chua thanh của chanh và ngọt dịu của mật ong, tạo ra
+                thức uống thanh mát, bổ dưỡng.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Trà xanh</li>
+                        <li>Chanh tươi</li>
+                        <li>Mật ong</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Pha trà xanh với nước sôi, để nguội.</p>
+                    <p>2. Vắt chanh tươi vào trà.</p>
+                    <p>3. Thêm mật ong vào trà và khuấy đều.</p>
+                    <p>4. Thêm đá viên vào ly và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=3auHRVFlMiY" target="_blank"
+                                rel="noopener noreferrer">Cách làm Trà Chanh Mật Ong</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 10 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDLsXseOZoOfgBjq6hhYdeLvlfAiQGXvMOYA&s"
+                alt="Soda Chanh">
+            <h3>Soda Chanh</h3>
+            <p>Soda chanh là món thức uống giải khát nổi bật với vị chua nhẹ của chanh, hòa quyện với vị sủi tăm đặc
+                trưng của soda, thích hợp cho mùa hè nóng bức.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Soda</li>
+                        <li>Chanh tươi</li>
+                        <li>Đường</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Vắt chanh lấy nước cốt.</p>
+                    <p>2. Cho nước cốt chanh vào ly, thêm đường và khuấy đều cho tan.</p>
+                    <p>3. Đổ soda vào ly và thêm đá viên.</p>
+                    <p>4. Khuấy đều và thưởng thức ngay.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=n0puENfJCuI" target="_blank"
+                                rel="noopener noreferrer">Cách làm Soda Chanh</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 11 -->
+        <div class="food-item">
+            <img src="https://cdn.shopify.com/s/files/1/0537/9997/files/tra-sua-thai-xanh-ngon-chuan-vi_1_480x480.jpg?v=1699265246"
+                alt="Trà Sữa Thái Xanh">
+            <h3>Trà Sữa Thái Xanh</h3>
+            <p>Trà sữa Thái xanh mang đến một hương vị đặc trưng từ trà xanh, kết hợp với sữa đặc thơm ngọt, mang lại
+                cảm giác dễ chịu và thư giãn.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Trà xanh Thái</li>
+                        <li>Sữa đặc</li>
+                        <li>Sữa tươi</li>
+                        <li>Đường</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Pha trà xanh Thái với nước sôi, để nguội.</p>
+                    <p>2. Thêm sữa đặc và đường vào trà, khuấy đều.</p>
+                    <p>3. Thêm sữa tươi vào trà và khuấy đều.</p>
+                    <p>4. Cho đá viên vào ly, rót trà sữa vào và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=2NGe5BBMSwA" target="_blank"
+                                rel="noopener noreferrer">Cách làm Trà Sữa Thái Xanh</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 1 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRgqdOXhvS3ECNAoZ6AjuSYwnYyAidD2G51w&s"
+                alt="Sương sáo hạt é">
+            <h3>Sương Sáo Hạt É</h3>
+            <p>Sương sáo hạt é là món ăn giải nhiệt phổ biến, kết hợp giữa vị ngọt dịu của nước đường và sự thanh mát từ
+                sương sáo cùng hạt é mềm dai.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Sương sáo</li>
+                        <li>Hạt é</li>
+                        <li>Đường phèn</li>
+                        <li>Nước cốt dừa</li>
+                        <li>Đá bào</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ngâm hạt é trong nước ấm khoảng 15 phút cho nở đều.</p>
+                    <p>2. Cắt nhỏ sương sáo thành khối vuông vừa ăn.</p>
+                    <p>3. Pha nước đường phèn với nước, khuấy tan và thêm một ít nước cốt dừa.</p>
+                    <p>4. Cho sương sáo, hạt é và đá bào vào ly, sau đó rót nước đường phèn vào.</p>
+                    <p>5. Trộn đều và thưởng thức lạnh.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=9z01Cd2a9mo" target="_blank"
+                                rel="noopener noreferrer">Cách làm Sương Sáo Hạt É</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn Milo Dầm -->
+        <div class="food-item">
+            <img src="https://dayphache.edu.vn/wp-content/uploads/2021/07/milo-dam-duoc-ua-chuong.jpg" alt="Milo Dầm">
+            <h3>Milo Dầm</h3>
+            <p>Milo dầm là món tráng miệng thơm ngon, kết hợp giữa bột Milo, sữa đặc, và các topping hấp dẫn, tạo nên
+                hương vị đậm đà, mát lạnh.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bột Milo</li>
+                        <li>Sữa đặc</li>
+                        <li>Sữa tươi</li>
+                        <li>Đá bào</li>
+                        <li>Trân châu</li>
+                        <li>Thạch rau câu</li>
+                        <li>Socola chip</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Cho đá bào vào ly, tạo lớp nền mát lạnh.</p>
+                    <p>2. Rưới sữa đặc và sữa tươi đều lên lớp đá bào.</p>
+                    <p>3. Rắc bột Milo phủ đều trên bề mặt.</p>
+                    <p>4. Thêm topping: trân châu, thạch rau câu, socola chip theo sở thích.</p>
+                    <p>5. Trộn đều trước khi thưởng thức, đảm bảo hương vị hòa quyện.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=n7hcMGW0PX0&pp=ygUNI21pbG9kb25nbGFuaA%3D%3D"
+                                target="_blank" rel="noopener noreferrer">Cách làm Milo Dầm</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 14 -->
+        <div class="food-item">
+            <img src="https://thucphamplaza.com/wp-content/uploads/products_img/cach-pha-tra-tac-mat-lanh.jpg"
+                alt="Trà Tắc">
+            <h3>Trà Tắc</h3>
+            <p>Trà tắc với vị chua thanh mát từ tắc kết hợp với vị ngọt nhẹ của trà, tạo nên thức uống bổ dưỡng và giải
+                nhiệt tuyệt vời.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Trà xanh</li>
+                        <li>Tắc (quất)</li>
+                        <li>Đường phèn</li>
+                        <li>Đá viên</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Pha trà xanh với nước sôi.</p>
+                    <p>2. Vắt tắc lấy nước cốt, thêm vào trà.</p>
+                    <p>3. Thêm đường phèn vào trà và khuấy đều.</p>
+                    <p>4. Thêm đá viên và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=k_WzdylyArQ" target="_blank"
+                                rel="noopener noreferrer">Cách làm Trà Tắc</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- Món ăn 15 -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFDf6BgVL_nG-3RscVS7bMUhD7-RjVgaGQiQ&s"
+                alt="Matcha Latte">
+            <h3>Matcha Latte</h3>
+            <p>Matcha latte kết hợp giữa hương vị đậm đà của matcha và sự mềm mịn của sữa tươi, tạo ra một thức uống
+                thanh mát và giàu năng lượng.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Matcha bột</li>
+                        <li>Sữa tươi</li>
+                        <li>Sữa đặc</li>
+                        <li>Đường</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Hòa matcha bột với nước nóng cho tan.</p>
+                    <p>2. Đun sữa tươi và thêm sữa đặc cùng đường vào.</p>
+                    <p>3. Đổ sữa vào ly, thêm matcha đã hòa tan và khuấy đều.</p>
+                    <p>4. Thưởng thức khi còn nóng hoặc lạnh.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li> <a href="https://www.youtube.com/watch?v=ylUdr7zjtio" target="_blank"
+                                rel="noopener noreferrer">Cách làm Matcha Latte</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Navigation Links -->
+
+    <footer>
+
+
+        <div class="footer-left">
+            <p><strong>Liên hệ:</strong></p>
+            <ul>
+                <li><strong>Email:</strong> <a>culinaryjourney@gmail.com</a>
+                </li>
+                <li><strong>Điện thoại:</strong> <a>+84 123 456 789</a></li>
+                <li><strong>Facebook:</strong> <a href="https://www.facebook.com/CulinaryJourney12TIN" target="_blank"
+                        rel="noopener noreferrer">Culinary Journey</a></li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
+        </div>
+    </footer>
+    <div class="snowfall"></div>
+
+</body>
+
+</html>

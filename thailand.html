@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
     <style>
         @font-face {
-    font-family: 'edo_szregular';
-    src: url('edosz-webfont.woff2') format('woff2'),
-         url('edosz-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-}
         * {
             box-sizing: border-box;
         }
@@ -38,6 +38,30 @@
             text-align: center;
             padding: 20px 0;
             color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
         }
 
         header h1 {
@@ -111,6 +135,7 @@
             justify-content: center;
             background-color: #333;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
@@ -118,13 +143,16 @@
             text-align: center;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             border-radius: 5px;
             background-color: #474747;
         }
+
         nav a.highlighted {
             background-color: #fae900;
         }
+
         .nav-links {
 
             text-align: center;
@@ -249,6 +277,19 @@
             line-height: 1.5;
 
         }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
     </style>
 </head>
 
@@ -258,6 +299,10 @@
     <header>
         <h1>Culinary Journey</h1>
         <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
     </header>
     <nav>
         <a href="trangchu.html">Trang chủ</a>
@@ -265,6 +310,9 @@
         <a href="korea.html">Đồ ăn Hàn Quốc</a>
         <a href="japan.html">Đồ ăn Nhật Bản</a>
         <a href="thailand.html" class="highlighted"> Đồ ăn Thái Lan</a>
+        <a href="aumy.html">Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html">Món tráng miệng</a>
+        <a href="nuocuong.html">Thức uống</a>
     </nav>
     <!-- Món ăn -->
     <div class="content">
@@ -296,7 +344,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/95SNwrPbZKk?si=YU4obY6GA1qdZoVP" target="_blank"
-                                rel="noopener noreferrer">Cách làm món gỏi đu đủ</a></li>
+                                rel="noopener noreferrer">Cách làm Gỏi Đu Đủ</a></li>
                     </ul>
                 </div>
             </details>
@@ -331,7 +379,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/EBXcOY4YRiU?si=95s0xfM-gpTISKa0" target="_blank"
-                                rel="noopener noreferrer">Cách làm món pad thái</a></li>
+                                rel="noopener noreferrer">Cách làm Pad Thái</a></li>
                     </ul>
                 </div>
             </details>
@@ -364,7 +412,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/dD9zwO-5AkI?si=9_nxIm1512moujdD" target="_blank"
-                                rel="noopener noreferrer">Cách làm món xôi xoài</a></li>
+                                rel="noopener noreferrer">Cách làm Xôi Xoài</a></li>
                     </ul>
                 </div>
             </details>
@@ -375,7 +423,7 @@
             <img src="https://cdn.tgdd.vn/Files/2021/04/06/1341188/cach-lam-suon-cay-thai-lan-sieu-ngon-sieu-don-gian-202104061418590126.jpg"
                 alt="Món 4">
             <h3>Sườn Cay Sốt Thái</h3>
-            <p>Sườn cay sốt Thái có vị đậm đà, hòa quyện giữa cay nồng của ớt, chua thanh từ chanh, mặn ngọt hài hòa,
+            <p>Sườn cay sốt Thái có vị đậm đà, hòa quyện giữa cay nồng của ớt, chua thanh từ chanh,
                 cùng hương thơm đặc trưng của tỏi, sả, rau mùi.</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
@@ -399,11 +447,370 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/isbWDW3Gg1Q?si=eiaTME98W3Zmr-zf" target="_blank"
-                                rel="noopener noreferrer">Cách làm món sườn cay sốt thái</a></li>
+                                rel="noopener noreferrer">Cách làm Sườn Cay Sốt Thái</a></li>
                     </ul>
                 </div>
             </details>
         </div>
+        <!-- Món ăn Lẩu Tom Yum -->
+        <div class="food-item">
+            <img src="https://giadinh.mediacdn.vn/zoom/740_463/2020/1/7/lau-thai-1-15783625539631864607009-crop-15783626114851453793531.jpg"
+                alt="Lẩu Tom Yum">
+            <h3>Lẩu Tom Yum</h3>
+            <p>Lẩu Tom Yum với hương vị chua cay đặc biệt từ sả, lá chanh, ớt và nước cốt dừa. Món lẩu này thường được
+                ăn cùng hải sản tươi ngon và các loại rau củ.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Tôm tươi</li>
+                        <li>Nước dùng (nước dừa hoặc nước hầm xương)</li>
+                        <li>Sả, lá chanh</li>
+                        <li>Cà chua, nấm</li>
+                        <li>Ớt, tỏi, gia vị: Nước mắm, đường, chanh</li>
+                        <li>Rau: Rau muống, nấm, mùi tàu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng: Đun sôi nước hầm xương hoặc nước dừa cùng sả, lá chanh, ớt và gia vị.</p>
+                    <p>2. Thêm cà chua, nấm và các loại rau vào nồi lẩu, đun sôi.</p>
+                    <p>3. Thêm tôm vào và nấu đến khi tôm chín.</p>
+                    <p>4. Nêm gia vị chua, cay, mặn ngọt vừa ăn.</p>
+                    <p>5. Dùng lẩu cùng với bún hoặc cơm, thêm chanh và ớt nếu thích.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=QBhWo1vhLHc" target="_blank"
+                                rel="noopener noreferrer">Cách làm Lẩu Tom Yum</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Cà Ri Xanh -->
+        <div class="food-item">
+            <img src="https://nauchuananngon.vn/wp-content/uploads/2021/06/Cach-nau-ca-ri-xanh-dung-chuan-thai-lan-02.jpg"
+                alt="Cà Ri Xanh">
+            <h3>Cà Ri Xanh</h3>
+            <p>Cà Ri Xanh có vị cay nhẹ, thơm lừng từ các gia vị như sả, ớt và cà ri, kết hợp với nước cốt dừa béo ngậy.
+                Món ăn này thường được chế biến từ thịt gà hoặc bò, ăn kèm với cơm hoặc bún.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt gà hoặc bò</li>
+                        <li>Cà ri xanh</li>
+                        <li>Nước cốt dừa</li>
+                        <li>Sả, ớt, hành tím</li>
+                        <li>Gia vị: Muối, đường, nước mắm</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Thái thịt gà hoặc bò thành miếng vừa ăn và ướp gia vị.</p>
+                    <p>2. Xào sả, ớt và hành tím cho thơm, sau đó cho cà ri xanh vào xào đều.</p>
+                    <p>3. Cho thịt vào xào đến khi chín vàng, sau đó thêm nước cốt dừa và nấu đến khi thịt mềm.</p>
+                    <p>4. Nêm nếm lại gia vị cho vừa ăn.</p>
+                    <p>5. Thưởng thức với cơm hoặc bún.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=TFAksvVHKjc" target="_blank"
+                                rel="noopener noreferrer">Cách làm Cà Ri Xanh</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Cà Ri Massaman -->
+        <div class="food-item">
+            <img src="https://www.packvn.com/wp-content/uploads/2021/07/Ca-Ri-Massaman-Top-1-trong-so-50-mon-an-ngon-nhat-the-gioi2.jpg"
+                alt="Cà Ri Massaman">
+            <h3>Cà Ri Massaman</h3>
+            <p>Cà Ri Massaman với hương vị đặc trưng từ cà ri, kết hợp với thịt bò, khoai tây và đậu phộng, tạo nên một
+                món ăn thơm ngon và đầy đủ hương vị.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt bò (hoặc gà, cừu)</li>
+                        <li>Khoai tây</li>
+                        <li>Đậu phộng rang</li>
+                        <li>Cà ri Massaman</li>
+                        <li>Gia vị: Nước mắm, đường, hành, tỏi, gừng, quế, hồi</li>
+                        <li>Chanh, dừa tươi (tuỳ chọn)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Sắc thịt bò thành miếng vừa ăn, ướp gia vị, hành, tỏi cho thơm.</p>
+                    <p>2. Xào thịt với dầu ăn cho săn lại.</p>
+                    <p>3. Thêm khoai tây, cà ri Massaman và nước cốt dừa vào, nấu cho mềm.</p>
+                    <p>4. Thêm đậu phộng và gia vị, nấu thêm cho đến khi nước cà ri sánh lại.</p>
+                    <p>5. Nêm nếm lại gia vị cho vừa ăn, dọn ra ăn với cơm trắng hoặc bánh mì.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=iUJD-0igej4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Cà Ri Massaman</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Pad Krapow -->
+        <div class="food-item">
+            <img src="https://www.siftandsimmer.com/wp-content/uploads/2021/11/pad-krapow-gai-thai-basil-chicken3.jpg"
+                alt="Pad Krapow">
+            <h3>Pad Krapow</h3>
+            <p>Pad Krapow với thịt băm xào với lá húng quế (Krapow), tỏi, ớt và nước mắm, tạo nên hương vị đậm đà, cay
+                nồng rất hấp dẫn.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt băm (thịt gà, thịt heo hoặc bò)</li>
+                        <li>Lá húng quế Thái (Krapow)</li>
+                        <li>Tỏi, ớt tươi</li>
+                        <li>Nước mắm, đường, dầu hào</li>
+                        <li>Trứng ốp la (tùy chọn)</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Làm nóng chảo, phi tỏi và ớt cho dậy mùi thơm.</p>
+                    <p>2. Thêm thịt băm vào xào đến khi thịt chín vàng.</p>
+                    <p>3. Nêm gia vị: nước mắm, đường và dầu hào, xào đều.</p>
+                    <p>4. Cho lá húng quế vào xào nhanh tay cho húng quế thấm gia vị.</p>
+                    <p>5. Dọn ra đĩa và thêm trứng ốp la lên trên nếu thích.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=VEpYAWnt8hE&vl=vi" target="_blank"
+                                rel="noopener noreferrer">Cách làm Pad Krapow</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Khao Pad -->
+        <div class="food-item">
+            <img src="https://www.andy-cooks.com/cdn/shop/articles/20240903051733-andy-20cooks-20-20thai-20prawn-20fried-20rice.jpg?v=1725927874"
+                alt="Khao Pad">
+            <h3>Cơm Chiên Thái</h3>
+            <p>Món cơm chiên với vị đậm đà từ nước mắm, hành tỏi và các gia vị Thái, kết hợp với thịt gà, tôm hoặc thịt
+                heo, tạo nên một món ăn thơm ngon.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm nguội</li>
+                        <li>Thịt gà hoặc tôm</li>
+                        <li>Hành lá</li>
+                        <li>Tỏi băm</li>
+                        <li>Gia vị: Nước mắm, đường, tiêu, dầu ăn</li>
+                        <li>Rau: Dưa leo, cà chua, rau thơm</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Xào tỏi với dầu ăn cho thơm, thêm thịt gà hoặc tôm vào xào chín.</p>
+                    <p>2. Cho cơm nguội vào chảo, xào đều với gia vị nước mắm, tiêu và đường.</p>
+                    <p>3. Thêm hành lá và rau thơm vào, đảo đều.</p>
+                    <p>4. Bày cơm chiên ra đĩa, trang trí với rau sống và cà chua.</p>
+                    <p>5. Thưởng thức khi còn nóng, có thể ăn kèm với chanh hoặc ớt tươi.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=N5hT2l-y30k&pp=ygUII3BoYWRnYWk%3D" target="_blank"
+                                rel="noopener noreferrer">Cách làm Cơm Chiên Thái</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Moo Satay -->
+        <div class="food-item">
+            <img src="https://images.deliveryhero.io/image/fd-th/LH/rs8j-listing.jpg" alt="Moo Satay">
+            <h3>Moo Satay</h3>
+            <p>Moo Satay là món sườn heo nướng với gia vị đậm đà, được ướp với sữa dừa, xả, và gia vị đặc trưng, nướng
+                trên lửa than cho hương vị thơm ngon, mềm mại và cay nhẹ.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Sườn heo</li>
+                        <li>Sữa dừa</li>
+                        <li>Xả</li>
+                        <li>Tỏi</li>
+                        <li>Gia vị: Nước mắm, đường, ớt, bột nghệ</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Sườn heo rửa sạch, chặt thành từng miếng vừa ăn.</p>
+                    <p>2. Pha trộn gia vị gồm sữa dừa, xả băm, tỏi băm, nước mắm và đường, ướp sườn trong 30 phút.</p>
+                    <p>3. Nướng sườn trên than hoa hoặc trong lò cho đến khi chín vàng đều, có mùi thơm.</p>
+                    <p>4. Lật mặt sườn thường xuyên để tránh cháy và đảm bảo thịt chín đều.</p>
+                    <p>5. Dùng nóng, ăn kèm với cơm trắng hoặc rau sống.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=4G_x6kJn2bk" target="_blank"
+                                rel="noopener noreferrer">Cách làm Moo Satay</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Tom Kha Gai -->
+        <div class="food-item">
+            <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/F8E111F9-A9FB-4154-8719-38697DDE7822/Derivates/E3573E80-3DEF-4633-826F-99B72C7BF6B3.jpg"
+                alt="Tom Kha Gai">
+            <h3>Tom Kha Gai</h3>
+            <p>Tom Kha Gai với nước dùng từ nước cốt dừa, kết hợp cùng các loại gia vị như sả, lá chanh, và ớt, tạo nên
+                một hương vị vừa cay vừa béo ngậy.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt gà (có thể dùng đùi hoặc ức gà)</li>
+                        <li>Nước cốt dừa</li>
+                        <li>Sả</li>
+                        <li>Gừng tươi</li>
+                        <li>Lá chanh</li>
+                        <li>Ớt tươi</li>
+                        <li>Gia vị: Nước mắm, đường, muối</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng: Đun sôi nước cốt dừa cùng với sả, gừng và lá chanh để tạo mùi thơm đặc trưng.
+                    </p>
+                    <p>2. Thái nhỏ thịt gà, cho vào nồi nước dùng nấu chín.</p>
+                    <p>3. Thêm gia vị: Nước mắm, đường, muối, và ớt tươi vào nồi để tăng hương vị cay nồng.</p>
+                    <p>4. Nêm nếm lại cho vừa ăn, rắc thêm hành lá và rau thơm khi ăn.</p>
+                    <p>5. Thưởng thức món canh gà chua cay, béo ngậy với cơm nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=gbq6-Vmk0y4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Tom Kha Gai</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Yam Nua -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcmz2rxA7Z62ZYVPvJe97HIJyBXn2o_zE7FA&s"
+                alt="Yam Nua">
+            <h3>Gỏi Bò</h3>
+            <p>Gỏi bò có vị chua cay đặc trưng, kết hợp với thịt bò nướng thơm ngon, rau thơm tươi mát và nước mắm chua
+                ngọt, tạo nên một món ăn hấp dẫn đầy đủ hương vị.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Thịt bò (bắp bò hoặc thăn bò)</li>
+                        <li>Hành tím</li>
+                        <li>Ớt tươi</li>
+                        <li>Rau thơm: Húng quế, ngò rí</li>
+                        <li>Gia vị: Nước mắm, đường, chanh, tỏi, nước cốt chanh</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nướng thịt bò cho chín vừa, thái mỏng.</p>
+                    <p>2. Xắt hành tím, ớt, rau thơm và trộn đều với thịt bò đã thái.</p>
+                    <p>3. Pha nước mắm chua ngọt với đường, chanh, tỏi, ớt để làm nước trộn.</p>
+                    <p>4. Trộn tất cả nguyên liệu lại với nhau cho đều.</p>
+                    <p>5. Thêm rau sống và thưởng thức món gỏi bò Thái ngon miệng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=6bYIPRBnT4Q" target="_blank"
+                                rel="noopener noreferrer">Cách làm Gỏi Bò</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Khao Man Gai -->
+        <div class="food-item">
+            <img src="https://res.cloudinary.com/hksqkdlah/image/upload/SFS_KhaoManGai-134_da8ukc.jpg"
+                alt="Khao Man Gai">
+            <h3>Khao Man Gai</h3>
+            <p>Khao Man Gai với thịt gà mềm mại, thơm ngon, ăn kèm với cơm nấu cùng mỡ gà và nước dùng đậm đà. Món ăn
+                này thường được ăn với nước sốt gừng cay nồng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cơm tấm</li>
+                        <li>Thịt gà (gà luộc hoặc gà chiên)</li>
+                        <li>Tỏi, gừng</li>
+                        <li>Nước mắm, đường</li>
+                        <li>Rau sống: Dưa leo, ngò rí</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc gà cho chín mềm, giữ lại nước luộc để làm nước dùng.</p>
+                    <p>2. Nấu cơm với mỡ gà để có hương vị thơm ngon.</p>
+                    <p>3. Thái gà thành miếng vừa ăn, bày lên đĩa.</p>
+                    <p>4. Pha nước sốt gừng, tỏi với nước mắm, đường.</p>
+                    <p>5. Dọn cơm gà cùng rau sống và nước sốt gừng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=Dk1gU2JjisA&pp=ygUJI3Bla2FuZ2Fp" target="_blank"
+                                rel="noopener noreferrer">Cách làm Khao Man Gai</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Pla Pao -->
+        <div class="food-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNTNkDC2gOKLR_Quq4xzLz7Fs-AzP8ItNAig&s"
+                alt="Pla Pao">
+            <h3>Pla Pao</h3>
+            <p>Pla Pao với cá được ướp gia vị thơm ngon, sau đó nướng trong lớp muối dày tạo nên hương vị đậm đà, ăn kèm
+                với rau sống và nước chấm đặc trưng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Cá (cá rô phi hoặc cá vược)</li>
+                        <li>Muối</li>
+                        <li>Gia vị: Tỏi, ớt, gừng, sả</li>
+                        <li>Rau sống: Rau thơm, xà lách</li>
+                        <li>Gia vị chấm: Nước mắm, tỏi, ớt, đường, chanh</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Cá được làm sạch, ướp gia vị gồm tỏi, ớt, gừng, sả và muối.</p>
+                    <p>2. Bọc cá trong lớp muối dày và nướng trên than hoa cho đến khi cá chín vàng đều.</p>
+                    <p>3. Trong lúc nướng cá, chuẩn bị nước chấm bằng cách pha nước mắm với tỏi, ớt, đường, và chanh.
+                    </p>
+                    <p>4. Khi cá chín, dọn ra đĩa, ăn kèm với rau sống và nước chấm.</p>
+                    <p>5. Thưởng thức món Pla Pao thơm ngon, đậm đà hương vị Thái Lan.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=TuZ_0A97xRU" target="_blank"
+                                rel="noopener noreferrer">Cách làm Pla Pao</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Kanom Jeen -->
+        <div class="food-item">
+            <img src="https://www.seriouseats.com/thmb/WYBn_ueaOIJMMozZMPmJGsHYoks=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210609-southern-thai-fish-curry-rice-noodles-KanomJeenNamYaGati-vicky-wasik-seriouseats-24-103e63c6d619403b8c1d6b11245ad851.jpg"
+                alt="Kanom Jeen">
+            <h3>Kanom Jeen</h3>
+            <p>Kanom Jeen với những sợi mì mềm mịn, thường được ăn kèm với nước sốt cà ri, thịt gà, cá hoặc rau sống,
+                mang lại một hương vị thơm ngon.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Mì gạo (Kanom Jeen)</li>
+                        <li>Thịt gà hoặc cá</li>
+                        <li>Cà ri đỏ hoặc cà ri xanh</li>
+                        <li>Rau sống: Giá đỗ, rau thơm, dưa leo</li>
+                        <li>Gia vị: Nước mắm, đường, tỏi, ớt</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc hoặc nấu thịt gà/cá cho chín mềm.</p>
+                    <p>2. Nấu nước sốt cà ri với gia vị cho đậm đà.</p>
+                    <p>3. Trụng mì gạo vào nước sôi cho mềm, để ráo.</p>
+                    <p>4. Xếp mì lên tô, cho nước sốt cà ri, thịt gà/cá lên trên.</p>
+                    <p>5. Thêm rau sống như giá đỗ, dưa leo, rau thơm và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=BaOzMgmPAkQ" target="_blank"
+                                rel="noopener noreferrer">Cách làm Kanom Jeen</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
     </div>
 
     <!-- Navigation Links -->
@@ -425,7 +832,7 @@
             <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
         </div>
     </footer>
-
+    <div class="snowfall"></div>
 
 </body>
 

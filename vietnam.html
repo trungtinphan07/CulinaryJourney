@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One" rel="stylesheet">
     <style>
         @font-face {
-    font-family: 'edo_szregular';
-    src: url('edosz-webfont.woff2') format('woff2'),
-         url('edosz-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+            font-family: 'edo_szregular';
+            src: url('edosz-webfont.woff2') format('woff2'),
+                url('edosz-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-}
         * {
             box-sizing: border-box;
         }
@@ -38,6 +38,30 @@
             text-align: center;
             padding: 20px 0;
             color: white;
+            position: relative;
+            /* Để các liên kết có thể được đặt vị trí chính xác trong header */
+        }
+
+        .auth-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .auth-link {
+            font-family: 'Paytone One', sans-serif;
+            color: #e5533c;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 8px 16px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .auth-link:hover {
+            background-color: #b3b3b3;
         }
 
         header h1 {
@@ -111,6 +135,7 @@
             justify-content: center;
             background-color: #333;
         }
+
         nav a {
             color: white;
             padding: 14px 20px;
@@ -118,13 +143,16 @@
             text-align: center;
             transition: background-color 0.3s;
         }
+
         nav a:hover {
             border-radius: 5px;
             background-color: #474747;
         }
+
         nav a.highlighted {
             background-color: #fae900;
         }
+
         .nav-links {
 
             text-align: center;
@@ -249,6 +277,19 @@
             line-height: 1.5;
 
         }
+
+        .snowfall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVoanIwMGRkeGx5ejQ2MXQyY2k3OHJkZGRuaDhyZWxjaHFrdzczYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/gfllffmJEBXju33FPg/giphy.gif') repeat top center;
+            pointer-events: none;
+            /* Không gây cản trở các sự kiện chuột */
+
+        }
     </style>
 </head>
 
@@ -258,6 +299,10 @@
     <header>
         <h1>Culinary Journey</h1>
         <p>Hành trình ẩm thực - Khám phá món ăn</p>
+        <div class="auth-links">
+            <a href="dangky.html" class="auth-link">Đăng ký</a>
+            <a href="dangnhap.html" class="auth-link">Đăng nhập</a>
+        </div>
     </header>
     <nav>
         <a href="trangchu.html">Trang chủ</a>
@@ -265,6 +310,9 @@
         <a href="korea.html">Đồ ăn Hàn Quốc</a>
         <a href="japan.html">Đồ ăn Nhật Bản</a>
         <a href="thailand.html">Đồ ăn Thái Lan</a>
+        <a href="aumy.html">Đồ ăn Âu-Mỹ</a>
+        <a href="trangmieng.html">Món tráng miệng</a>
+        <a href="nuocuong.html">Thức uống</a>
     </nav>
     <!-- Món ăn -->
     <div class="content">
@@ -295,7 +343,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/Ps2fqiK2ykQ?si=k_t-9iddGNYGBpkP" target="_blank"
-                                rel="noopener noreferrer">Cách làm món bánh mì thịt</a></li>
+                                rel="noopener noreferrer">Cách làm Bánh Mì Thịt</a></li>
                     </ul>
                 </div>
             </details>
@@ -328,7 +376,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/c9GfHgMk1ac?si=enfWUfnBoFJOvnzK" target="_blank"
-                                rel="noopener noreferrer">Cách làm món phở bò</a></li>
+                                rel="noopener noreferrer">Cách làm Phở Bò</a></li>
                     </ul>
 
                 </div>
@@ -339,7 +387,7 @@
         <div class="food-item">
             <img src="https://imgur.com/vjqSxYV.jpeg" alt="Món 3">
             <h3>Gỏi Cuốn</h3>
-            <p>Gỏi cuốn có vị tươi mát, nhẹ nhàng với sự kết hợp hoàn hảo giữa các nguyên liệu như rau sống, bún, tôm
+            <p>Gỏi cuốn có sự kết hợp hoàn hảo giữa các nguyên liệu như rau sống, bún, tôm
                 hoặc thịt, cuốn trong lớp bánh tráng mềm mịn mang đến một cảm giác thanh mát, tươi ngon.</p>
             <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
             <details>
@@ -350,7 +398,7 @@
                         <li>Bánh tráng</li>
                         <li>Tôm tươi</li>
                         <li>Xà lách</li>
-                        <li>Ngò rí</li>
+                        <li>Ngò rí</i>
                         <li>Gia vị: Nước mắm, đường, tỏi, ớt</li>
                     </ul>
                     <h4>Công thức:</h4>
@@ -362,7 +410,7 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/LJ_3BeqH63w?si=7Izwk7W2pfKTk5ef" target="_blank"
-                                rel="noopener noreferrer">Cách làm món gỏi cuốn</a></li>
+                                rel="noopener noreferrer">Cách làm Gỏi Cuốn</a></li>
                     </ul>
                 </div>
             </details>
@@ -395,11 +443,369 @@
                     <h4>Cách làm chi tiết:</h4>
                     <ul>
                         <li> <a href="https://youtu.be/OVb5uoDWspM?si=kYPF9mY77u3M7VoD" target="_blank"
-                                rel="noopener noreferrer">Cách làm món cơm tấm</a></li>
+                                rel="noopener noreferrer">Cách làm Cơm Tấm</a></li>
                     </ul>
                 </div>
             </details>
         </div>
+        <!-- Món ăn Bún Cá -->
+        <div class="food-item">
+            <img src="https://cdn.tgdd.vn/Files/2021/08/25/1377800/cach-lam-mon-bun-ca-qua-nau-chua-ngon-de-lam-tai-nha-202201051508357504.jpg"
+                alt="Bún Cá">
+            <h3>Bún Cá</h3>
+            <p>Bún cá có hương vị thanh mát từ nước dùng ninh từ xương cá, kết hợp với vị ngọt tự nhiên từ cà chua, dọc
+                mùng và các loại rau thơm, cùng những miếng cá chiên giòn vàng ươm.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bún tươi</li>
+                        <li>Cá (cá rô phi, cá lóc hoặc cá thu)</li>
+                        <li>Cà chua</li>
+                        <li>Dọc mùng</li>
+                        <li>Rau thơm: Hành lá, thì là</li>
+                        <li>Gia vị: Muối, đường, nước mắm</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Rửa sạch cá, ướp gia vị và chiên giòn.</p>
+                    <p>2. Nấu nước dùng từ xương cá, thêm cà chua, dọc mùng vào nấu chín.</p>
+                    <p>3. Trụng bún vào nước sôi, cho vào tô.</p>
+                    <p>4. Xếp cá chiên và rau thơm lên bún, chan nước dùng nóng.</p>
+                    <p>5. Thêm ớt, chanh, và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=m31J1V6JaA4" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bún Cá</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bánh Xèo -->
+        <div class="food-item">
+            <img src="https://www.huongnghiepaau.com/wp-content/uploads/2017/02/cach-lam-banh-xeo-mien-trung.jpg"
+                alt="Bánh Xèo">
+            <h3>Bánh Xèo</h3>
+            <p>Bánh xèo với lớp vỏ giòn tan, nhân tôm thịt, giá đỗ và hành lá, được chấm cùng nước mắm pha chua ngọt,
+                mang đến hương vị hài hòa và độc đáo.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bột bánh xèo</li>
+                        <li>Tôm tươi</li>
+                        <li>Thịt ba chỉ</li>
+                        <li>Giá đỗ</li>
+                        <li>Hành lá</li>
+                        <li>Nước mắm, tỏi, ớt, đường, chanh</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Pha bột bánh xèo với nước và hành lá thái nhỏ.</p>
+                    <p>2. Xào tôm và thịt ba chỉ cho chín tới.</p>
+                    <p>3. Đổ bột vào chảo nóng, thêm nhân tôm thịt và giá đỗ, đậy nắp chờ bánh chín vàng.</p>
+                    <p>4. Gập đôi bánh và chiên thêm vài phút cho giòn.</p>
+                    <p>5. Pha nước mắm chua ngọt và thưởng thức cùng rau sống.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=d-2HuZ44UgM" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bánh Xèo</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bún Chả -->
+        <div class="food-item">
+            <img src="https://kipor.vn//upload/images/lam-bun-cha-bang-noi-chien-khong-dau-6.jpg" alt="Bún Chả">
+            <h3>Bún Chả</h3>
+            <p>Bún chả là sự kết hợp hài hòa giữa chả thịt nướng thơm lừng, bún tươi mát và nước mắm chua ngọt. Món ăn
+                nổi bật bởi hương vị đậm đà, đặc trưng của ẩm thực Hà Nội.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bún tươi</li>
+                        <li>Thịt ba chỉ</li>
+                        <li>Thịt nạc vai</li>
+                        <li>Gia vị: Nước mắm, đường, tỏi, hành, ớt, tiêu</li>
+                        <li>Rau sống: Xà lách, tía tô, kinh giới</li>
+                        <li>Đồ chua: Cà rốt, su hào</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ướp thịt ba chỉ và nạc vai với nước mắm, hành, tỏi, tiêu, đường trong 30 phút.</p>
+                    <p>2. Nướng thịt trên than hoa cho chín vàng, thơm.</p>
+                    <p>3. Pha nước chấm từ nước mắm, đường, tỏi, ớt và nước cốt chanh.</p>
+                    <p>4. Chuẩn bị bún, rau sống và đồ chua.</p>
+                    <p>5. Thưởng thức bún chả bằng cách chan nước chấm vào bún và ăn kèm với thịt nướng, rau sống.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=SQ1j8WkOUZM" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bún Chả</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bún Bò Huế -->
+        <div class="food-item">
+            <img src="https://cdn.tgdd.vn/Files/2018/04/01/1078873/nau-bun-bo-hue-cuc-de-tai-nha-tu-vien-gia-vi-co-san-202109161718049940.jpg"
+                alt="Bún Bò Huế">
+            <h3>Bún Bò Huế</h3>
+            <p>Bún Bò Huế nổi tiếng với nước dùng đậm đà, hương vị đặc trưng từ sả, mắm ruốc và thịt bò, kết hợp cùng
+                sợi bún to, thịt chân giò, chả cua, mang đến hương vị độc đáo của vùng đất cố đô.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bún tươi</li>
+                        <li>Thịt bò (bắp bò, nạm bò)</li>
+                        <li>Chân giò heo</li>
+                        <li>Chả cua</li>
+                        <li>Sả, mắm ruốc Huế</li>
+                        <li>Gia vị: Hành, tỏi, ớt, nước mắm, muối, đường</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Rửa sạch thịt bò, chân giò, chần qua nước sôi và vớt ra.</p>
+                    <p>2. Ninh chân giò và thịt bò cùng sả đập dập, nêm mắm ruốc cho đậm vị.</p>
+                    <p>3. Thêm chả cua vào nồi nước dùng và nêm nếm gia vị vừa ăn.</p>
+                    <p>4. Trụng bún, cho vào tô, thêm thịt bò, chả cua, chân giò và chan nước dùng nóng.</p>
+                    <p>5. Thêm rau sống, chanh, ớt và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=SHS3434gl48" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bún Bò Huế</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bánh Cuốn -->
+        <div class="food-item">
+            <img src="https://netspace.edu.vn/app_assets/images/2018/10/25/cach-lam-banh-cuon-thom-ngon-bo-duong-tai-nha-800.jpg"
+                alt="Bánh Cuốn">
+            <h3>Bánh Cuốn</h3>
+            <p>Bánh cuốn là món ăn truyền thống của Việt Nam, gồm lớp bánh mỏng, mềm mịn cuốn bên trong là thịt băm, mộc
+                nhĩ và hành phi, ăn kèm với nước mắm chua ngọt và rau thơm.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh cuốn (bột gạo)</li>
+                        <li>Thịt băm</li>
+                        <li>Mộc nhĩ</li>
+                        <li>Hành phi</li>
+                        <li>Gia vị: Nước mắm, đường, tỏi, ớt</li>
+                        <li>Rau thơm: Húng quế, giá đỗ</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Trộn bột gạo với nước, hấp thành bánh mỏng.</p>
+                    <p>2. Xào thịt băm với mộc nhĩ và hành phi.</p>
+                    <p>3. Cuốn thịt xào vào bánh cuốn đã hấp chín.</p>
+                    <p>4. Pha nước mắm chua ngọt, thêm tỏi, ớt, đường.</p>
+                    <p>5. Xếp bánh cuốn ra đĩa, thêm rau thơm và ăn kèm nước mắm.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=1InuluyRWSc&pp=ygUMI21vbmJhbmhjdW9u"
+                                target="_blank" rel="noopener noreferrer">Cách làm Bánh Cuốn</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bún Đậu Mắm Tôm -->
+        <div class="food-item">
+            <img src="https://langvong.vn/wp-content/uploads/2024/05/cach-lam-bun-dau-mam-tom-chuan-vi-Ha-Noi.webp"
+                alt="Bún Đậu Mắm Tôm">
+            <h3>Bún Đậu Mắm Tôm</h3>
+            <p>Bún đậu mắm tôm là món ăn đặc trưng của Hà Nội, với bún tươi ăn kèm đậu hũ chiên vàng giòn, thịt ba chỉ
+                luộc, cùng mắm tôm thơm ngon đặc trưng, mang đến hương vị đậm đà, độc đáo.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bún tươi</li>
+                        <li>Đậu hũ</li>
+                        <li>Thịt ba chỉ</li>
+                        <li>Mắm tôm</li>
+                        <li>Gia vị: Tỏi, ớt, chanh, đường</li>
+                        <li>Rau sống: Xà lách, húng quế</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc thịt ba chỉ và thái thành lát mỏng.</p>
+                    <p>2. Chiên đậu hũ vàng giòn, cắt thành miếng vừa ăn.</p>
+                    <p>3. Trụng bún vào nước sôi cho nóng, để ráo.</p>
+                    <p>4. Pha mắm tôm với tỏi, ớt, đường, chanh cho vừa ăn.</p>
+                    <p>5. Xếp bún, thịt, đậu hũ và rau sống ra đĩa, ăn kèm mắm tôm và thưởng thức.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=YBHjQpiK02s" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bún Đậu Mắm Tôm</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Hủ Tiếu -->
+        <div class="food-item">
+            <img src="https://i-giadinh.vnecdn.net/2023/05/15/Bc8Thnhphm18-1684125639-9811-1684125654.jpg"
+                alt="Hủ Tiếu">
+            <h3>Hủ Tiếu</h3>
+            <p>Hủ tiếu đặc trưng với nước dùng ngọt thanh từ xương, kết hợp với hủ tiếu dai, tôm, thịt heo và rau sống
+                tươi mát, mang đến một bữa ăn ngon miệng và đầy đủ dinh dưỡng.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Hủ tiếu</li>
+                        <li>Thịt heo</li>
+                        <li>Tôm tươi</li>
+                        <li>Hành, tỏi</li>
+                        <li>Gia vị: Nước mắm, muối, đường, tiêu</li>
+                        <li>Rau sống: Xà lách, giá đỗ, húng quế</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Ninh nước dùng từ xương heo và gia vị cho ngọt.</p>
+                    <p>2. Thái mỏng thịt heo, tôm bóc vỏ và luộc chín.</p>
+                    <p>3. Trụng hủ tiếu qua nước sôi cho mềm.</p>
+                    <p>4. Xếp hủ tiếu vào tô, thêm thịt, tôm, hành, và chan nước dùng nóng lên trên.</p>
+                    <p>5. Thêm rau sống và gia vị vào tô, thưởng thức khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=ngTTGJChxDk" target="_blank"
+                                rel="noopener noreferrer">Cách làm Hủ Tiếu</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bánh Canh Cua -->
+        <div class="food-item">
+            <img src="https://static.vinwonders.com/production/banh-canh-cua-roi-hue-01.jpg" alt="Bánh Canh Cua">
+            <h3>Bánh Canh Cua</h3>
+            <p>Bánh canh cua hấp dẫn với nước dùng ngọt thanh từ cua tươi, kết hợp cùng sợi bánh canh dẻo, thịt cua tươi
+                ngon và một số loại rau thơm tạo nên hương vị đậm đà, khó quên.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bánh canh</li>
+                        <li>Cua tươi</li>
+                        <li>Hành, tỏi, gừng</li>
+                        <li>Gia vị: Muối, đường, nước mắm</li>
+                        <li>Rau thơm: Ngò gai, húng quế</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng: Ninh xương và cua tươi với hành, tỏi, gừng để tạo nước dùng ngọt thanh.</p>
+                    <p>2. Luộc bánh canh: Trụng bánh canh vào nước sôi cho mềm, vớt ra để ráo.</p>
+                    <p>3. Tách lấy thịt cua, ướp gia vị và xào sơ qua với tỏi.</p>
+                    <p>4. Cho bánh canh vào tô, thêm thịt cua và rau thơm lên trên.</p>
+                    <p>5. Chan nước dùng nóng lên, thưởng thức món ăn ngay khi còn nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=nsjBAOgjUmw&vl=vi" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bánh Canh Cua</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Nui -->
+        <div class="food-item">
+            <img src="https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/170165/Originals/cach-nau-nui-ngon-1.jpg"
+                alt="Nui">
+            <h3>Nui</h3>
+            <p>Nui có thể chế biến với nhiều nguyên liệu như thịt băm, trứng cút, rau củ, hoặc sốt cà chua, tạo nên
+                hương vị vừa đậm đà vừa dễ ăn.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Nui</li>
+                        <li>Thịt băm (thịt heo, gà hoặc bò)</li>
+                        <li>Cà chua</li>
+                        <li>Rau củ: Hành tây, ớt chuông</li>
+                        <li>Gia vị: Muối, đường, tiêu</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Luộc nui trong nước sôi với một ít muối, sau đó vớt ra để ráo.</p>
+                    <p>2. Xào thịt băm với hành tây, ớt chuông, cà chua cho đến khi chín.</p>
+                    <p>3. Cho nui đã luộc vào chảo xào cùng thịt và rau củ.</p>
+                    <p>4. Nêm gia vị cho vừa ăn, thêm ít tiêu để tăng hương vị.</p>
+                    <p>5. Thưởng thức món nui nóng hổi.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=Y8BdQTM9miw" target="_blank"
+                                rel="noopener noreferrer">Cách làm Nui</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <!-- Món ăn Bún Quậy -->
+        <div class="food-item">
+            <img src="https://cdn.tgdd.vn/Files/2020/07/22/1272676/cach-lam-mon-bun-quay-phu-quoc-tru-danh-mon-an-doc-dao-va-la-mieng-ma-ai-cung-nen-thu-202007220905389497.jpg"
+                alt="Bún Quậy">
+            <h3>Bún Quậy</h3>
+            <p>Bún Quậy là một món ăn đặc trưng của Phú Quốc với nước dùng thanh ngọt, ăn kèm với bún tươi, tôm, mực và
+                các loại rau sống.</p>
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Bún tươi</li>
+                        <li>Tôm tươi</li>
+                        <li>Mực tươi</li>
+                        <li>Rau sống: Xà lách, húng quế</li>
+                        <li>Gia vị: Nước mắm, ớt, chanh</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Nấu nước dùng từ xương và gia vị, cho đến khi nước dùng thơm và ngọt.</p>
+                    <p>2. Trụng bún tươi vào nước sôi, để ráo.</p>
+                    <p>3. Chế biến tôm, mực bằng cách luộc chín.</p>
+                    <p>4. Đặt bún vào tô, cho tôm, mực và rau sống lên trên.</p>
+                    <p>5. Chan nước dùng nóng và quậy đều để các nguyên liệu hòa quyện vào nhau.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=JjiWRb8cRlE" target="_blank"
+                                rel="noopener noreferrer">Cách làm Bún Quậy</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        <div class="food-item">
+            <img src="https://tiki.vn/blog/wp-content/uploads/2023/10/chao-long-bao-nhieu-calo-an-nhieu-chao-long-co-tang-can-khong.jpg"
+                alt="Món Cháo Lòng">
+            <h3>Cháo Lòng</h3>
+            <p>Cháo lòng là món ăn dân dã với hương vị đậm đà, kết hợp giữa cháo ninh từ gạo thơm, lòng heo dai giòn và
+                các loại gia vị truyền thống.</p>
+            <!-- Chi tiết món ăn: Nguyên liệu và công thức -->
+            <details>
+                <summary>Xem nguyên liệu và công thức</summary>
+                <div>
+                    <h4>Nguyên liệu:</h4>
+                    <ul>
+                        <li>Gạo</li>
+                        <li>Lòng heo (tim, gan, dạ dày, ruột non)</li>
+                        <li>Hành lá, ngò rí</li>
+                        <li>Hành tím</li>
+                        <li>Gia vị: muối, tiêu, nước mắm</li>
+                    </ul>
+                    <h4>Công thức:</h4>
+                    <p>1. Rửa sạch lòng heo bằng nước muối loãng và gừng để khử mùi.</p>
+                    <p>2. Luộc lòng heo đến khi chín, thái miếng vừa ăn.</p>
+                    <p>3. Rang gạo cho thơm, sau đó nấu cùng nước dùng xương heo.</p>
+                    <p>4. Khi cháo chín nhừ, cho lòng heo vào nồi, nêm gia vị vừa ăn.</p>
+                    <p>5. Thêm hành lá, ngò rí và tiêu lên trên, thưởng thức nóng.</p>
+                    <h4>Cách làm chi tiết:</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=A3N2lnGIbvI" target="_blank"
+                                rel="noopener noreferrer">Cách làm Cháo Lòng</a></li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
     </div>
 
     <!-- Navigation Links -->
@@ -421,7 +827,7 @@
             <img src="https://imgur.com/l2CZAgf.jpeg" alt="Nhóm tôi" />
         </div>
     </footer>
-
+    <div class="snowfall"></div>
 
 </body>
 
